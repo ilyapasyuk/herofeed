@@ -7,17 +7,6 @@ export default function($http) {
             return $http.get(SOURCE).then((response) => {
                 return Object.values(response.data);
             });
-        },
-
-        filter(list, query) {
-            if (query === '') {
-                return list;
-            }
-
-            const normalizedQuery = query.toLowerCase();
-            return list.filter((movie) => {
-                return movie.title.toLowerCase().indexOf(normalizedQuery) !== -1;
-            });
         }
     };
 }

@@ -1,10 +1,7 @@
 @import '../../core/styles/variables';
 
 .movies-list {
-
-  &__list {
-    @include inner;
-    padding-top: $base-size * 4;
-    padding-bottom: $base-size * 4;
-  }
+  @include inner;
+  padding-top: $base-size * 4;
+  padding-bottom: $base-size * 4;
 }
