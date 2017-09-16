@@ -93,7 +93,9 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     );
 
     config.plugins.push(
-        new CleanPlugin(['dist/*'])
+        new CleanPlugin(['dist/*'], {
+            exclude: ['CNAME']
+        })
     );
 }
 
