@@ -11,7 +11,6 @@ export default {
 /* @ngInject */
 function MenuController() {
     const vm = this;
-    console.log(vm);
 
     vm.pages = [
         {

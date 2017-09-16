@@ -12,14 +12,6 @@ export default {
 
 
 /* @ngInject */
-function MoviesListController(Movies) {
+function MoviesListController() {
     const vm = this;
-    vm.filterData = (query = '') => {
-        vm.filteredList = Movies.filter(vm.list, query);
-    };
-
-    vm.$onInit = () => {
-        vm.query = '';
-        vm.filteredList = Movies.filter(vm.list, vm.query);
-    };
 }

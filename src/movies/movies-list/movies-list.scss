@@ -1,11 +1,10 @@
 @import '../../core/styles/variables';
 
 .movies-list {
-  &__query {
-    display: block;
-    width: 100%;
-    padding: 4px 8px;
-    font-size: 14px;
-    border-radius: 3px;
+
+  &__list {
+    @include inner;
+    padding-top: $base-size * 4;
+    padding-bottom: $base-size * 4;
   }
 }
