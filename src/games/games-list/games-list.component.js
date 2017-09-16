@@ -12,14 +12,6 @@ export default {
 
 
 /* @ngInject */
-function GamesListController(Games) {
+function GamesListController() {
     const vm = this;
-    vm.filterData = (query = '') => {
-        vm.filteredList = Games.filter(vm.list, query);
-    };
-
-    vm.$onInit = () => {
-        vm.query = '';
-        vm.filteredList = Games.filter(vm.list, vm.query);
-    };
 }

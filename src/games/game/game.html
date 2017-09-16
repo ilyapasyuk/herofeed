@@ -2,5 +2,13 @@
     <div class="game__title"
          ng-bind="game.data.fields.title_en">
     </div>
-    <img ng-src="{{ game.data.fields.cover[0].thumbnails.large.url }}" alt="">
+    <div class="game__realise"
+         ng-bind="game.data.fields.date_relise">
+    </div>
+    <div class="game__platforms">
+        <span ng-repeat="platform in game.data.fields.platforms"
+              class="game__platform">
+            {{ platform }}
+        </span>
+    </div>
 </div>
