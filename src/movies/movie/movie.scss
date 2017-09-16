@@ -1,0 +1,10 @@
+@import '../../core/styles/variables';
+
+.movie {
+  margin: 16px 0;
+  padding: 8px 8px;
+
+  &__tile {
+    font-size: 16px;
+  }
+}

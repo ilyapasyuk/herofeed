@@ -1,0 +1,14 @@
+<div class="menu">
+    <div class="menu__brand">
+        Herofeed
+    </div>
+    <div class="menu__items">
+        <a class="menu__item"
+           ng-repeat="item in menu.pages" ui-sref="{{ item.state }}"
+           ui-sref-active="menu__item_active">
+            <i class="mi mi-{{ item.icon }}"></i>
+            {{item.name}}
+        </a>
+    </div>
+
+</div>
