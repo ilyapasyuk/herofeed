@@ -1,18 +1,18 @@
 import angular from 'angular';
-import MoviesListComponent from './movies-list/movies-list.component';
+import MovieListComponent from './movie-list/movie-list.component';
 import MovieItemComponent from './movie-item/movie-item.component';
 import MoviePageComponent from './movies-page/movie-page.component';
 import MoviesService from './movies.service';
 
 export default angular.module('app.movies', [])
     .factory('Movies', MoviesService)
-    .component('moviesList', MoviesListComponent)
+    .component('movieList', MovieListComponent)
     .component('movieItem', MovieItemComponent)
     .component('moviePage', MoviePageComponent)
     .config(($stateProvider) => {
         $stateProvider.state('movies', {
             url: '/movies',
-            component: 'moviesList',
+            component: 'movieList',
             resolve: {
                 list: (Movies) => {
                     /* @ngInject */
