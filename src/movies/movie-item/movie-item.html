@@ -1,0 +1,9 @@
+<div class="movie-item">
+    <div class="movie-item__poster">
+        <img ng-src="{{ movieItem.data.fields.cover[0].thumbnails.large.url }}">
+    </div>
+    <a class="movie-item__title"
+       ui-sref="moviePage({ idMovie: movieItem.data.fields.id })">
+        {{ movieItem.data.fields.title_ru }}
+    </a>
+</div>
