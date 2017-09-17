@@ -1,6 +1,6 @@
 import angular from 'angular';
 import MoviesListComponent from './movies-list/movies-list.component';
-import MovieItemComponent from './movie-item/movie.component';
+import MovieItemComponent from './movie-item/movie-item.component';
 import MoviePageComponent from './movies-page/movie-page.component';
 import MoviesService from './movies.service';
 
