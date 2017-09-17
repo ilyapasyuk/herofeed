@@ -1,12 +1,14 @@
 import angular from 'angular';
 import MoviesListComponent from './movies-list/movies-list.component';
-import MovieComponent from './movie-item/movie.component';
+import MovieItemComponent from './movie-item/movie.component';
+import MoviePageComponent from './movies-page/movie-page.component';
 import MoviesService from './movies.service';
 
 export default angular.module('app.movies', [])
     .factory('Movies', MoviesService)
     .component('moviesList', MoviesListComponent)
-    .component('movie', MovieComponent)
+    .component('movie', MovieItemComponent)
+    .component('moviePage', MoviePageComponent)
     .config(($stateProvider) => {
         $stateProvider.state('movies', {
             url: '/movies',
@@ -15,6 +17,15 @@ export default angular.module('app.movies', [])
                 list: (Movies) => {
                     /* @ngInject */
                     return Movies.getList();
+                }
+            }
+        }).state('moviePage', {
+            url: '/movie/:idMovie',
+            component: 'moviePage',
+            resolve: {
+                data: (Movies, $stateParams) => {
+                    /* @ngInject */
+                    return Movies.getMovie($stateParams.idMovie);
                 }
             }
         });
