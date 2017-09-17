@@ -5,6 +5,6 @@ export default {
     bindings: {
         data: '<'
     },
-    template,
-    controllerAs: 'movie'
+    controllerAs: 'movie',
+    template
 };

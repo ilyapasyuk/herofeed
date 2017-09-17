@@ -2,7 +2,8 @@
     <div class="movie__poster">
         <img ng-src="{{ movie.data.fields.cover[0].thumbnails.large.url }}">
     </div>
-    <div class="movie__title"
-         ng-bind="movie.data.fields.title_ru">
-    </div>
+    <a class="movie__title"
+       ui-sref="moviePage({ idMovie: movie.data.fields.id })">
+        {{ movie.data.fields.title_ru }}
+    </a>
 </div>
