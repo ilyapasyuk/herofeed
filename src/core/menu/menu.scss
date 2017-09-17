@@ -31,6 +31,17 @@
     align-items: center;
     box-shadow: none;
     transition: all .2s ease-in-out;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    opacity: .8;
+    font-size: $base-size * 4;
+    outline: none;
+
+
+    &:hover {
+      opacity: 1;
+    }
 
     i {
       margin-right: $base-size;

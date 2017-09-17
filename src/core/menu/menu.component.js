@@ -22,5 +22,5 @@ function MenuController() {
             name: 'Кино',
             icon: 'local-movies'
         }
-    ]
+    ];
 }
