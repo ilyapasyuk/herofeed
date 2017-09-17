@@ -31,6 +31,20 @@
     align-items: center;
     box-shadow: none;
     transition: all .2s ease-in-out;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    opacity: .8;
+    font-size: $base-size * 4;
+    outline: none;
+
+    b {
+      margin-right: $base-size;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
 
     i {
       margin-right: $base-size;
@@ -38,6 +52,32 @@
 
     &_active {
       box-shadow: inset 0px -2px 0px 0px $success-dark;
+    }
+  }
+
+  &__search {
+    background: rgba($base-color, 0.9);
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    &-close {
+      position: absolute;
+      right: $base-size * 3;
+      top: $base-size * 3;
+      font-size: $base-size * 6;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      color: $menu-light;
+      outline: none;
+      
+      &:hover {
+        color: $menu-dark;
+      }
     }
   }
 }
