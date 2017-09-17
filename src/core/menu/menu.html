@@ -10,30 +10,5 @@
             <i class="mi mi-{{ item.icon }}"></i>
             {{item.name}}
         </a>
-        <button class="menu__item"
-                ng-click="menu.showSearch()">
-            <i class="mi mi-search"></i>
-            <b>Искать</b> что угодно
-        </button>
-    </div>
-
-    <div class="menu__search"
-         ng-if="menu.searchPanel">
-        <div class="container">
-            <label>
-                <h2>Найти</h2>
-                <input type="text"
-                       autofocus
-                       ng-keydown="menu.search(menu.searchWord)"
-                       ng-model="menu.searchWord"/>
-            </label>
-            <div class="menu__search-item">
-                {{ menu.herosList | json }}
-            </div>
-        </div>
-        <button class="menu__search-close"
-                ng-click="menu.closeSearch()">
-            <i class="mi mi-close"></i>
-        </button>
     </div>
 </div>

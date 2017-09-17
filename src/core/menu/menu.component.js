@@ -9,10 +9,8 @@ export default {
 
 
 /* @ngInject */
-function MenuController(Hero) {
+function MenuController() {
     const vm = this;
-
-    vm.searchPanel = false;
 
     vm.pages = [
         {
@@ -25,15 +23,4 @@ function MenuController(Hero) {
             icon: 'local-movies'
         }
     ];
-
-    vm.showSearch = () => Hero.getHeros().then((result) => {
-        vm.herosList = result;
-        vm.searchPanel = true;
-    });
-
-    vm.closeSearch = () => vm.searchPanel = false;
-
-    vm.search = (word) => {
-
-    };
 }
