@@ -1,5 +1,5 @@
-import template from './movie.html';
-import './movie.scss';
+import template from './movie-item.html';
+import './movie-item.scss';
 
 export default {
     bindings: {
