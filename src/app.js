@@ -9,9 +9,8 @@ angular.module('app', [
     MoviesModule,
     GamesModule,
     HeroModule
-]).config(($compileProvider, $locationProvider) => {
+]).config(($compileProvider) => {
     $compileProvider.debugInfoEnabled(process.env.NODE_ENV !== 'production');
     $compileProvider.commentDirectivesEnabled(false);
     $compileProvider.cssClassDirectivesEnabled(false);
-    $locationProvider.html5Mode(true);
 });
