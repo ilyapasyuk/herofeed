@@ -7,7 +7,7 @@ import MoviesService from './movies.service';
 export default angular.module('app.movies', [])
     .factory('Movies', MoviesService)
     .component('moviesList', MoviesListComponent)
-    .component('movie', MovieItemComponent)
+    .component('movieItem', MovieItemComponent)
     .component('moviePage', MoviePageComponent)
     .config(($stateProvider) => {
         $stateProvider.state('movies', {

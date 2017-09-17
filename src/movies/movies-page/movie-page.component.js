@@ -14,5 +14,4 @@ export default {
 /* @ngInject */
 function MoviePageController() {
     const vm = this;
-    console.log(vm);
 }
