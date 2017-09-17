@@ -1,7 +1,7 @@
 import angular from 'angular';
 import MovieListComponent from './movie-list/movie-list.component';
 import MovieItemComponent from './movie-item/movie-item.component';
-import MoviePageComponent from './movies-page/movie-page.component';
+import MoviePageComponent from './movie-page/movie-page.component';
 import MoviesService from './movies.service';
 
 export default angular.module('app.movies', [])
