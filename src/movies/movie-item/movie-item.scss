@@ -49,4 +49,30 @@
       background-color: $complete-lighter;
     }
   }
+
+  &__type {
+    color: white;
+    position: absolute;
+    left: $base-size * 2;
+    top: $base-size * 2;
+    background-color: $primary-light;
+    border-radius: $base-size;
+    white-space: nowrap;
+    padding: $base-size $base-size*2;
+    margin-right: $base-size * 2;
+    font-size: 12px;
+    pointer-events: none;
+
+    &_movie {
+      background-color: $danger-light;
+    }
+
+    &_serial {
+      background-color: $complete-light;
+    }
+
+    &_animation {
+      background-color: $warning;
+    }
+  }
 }
