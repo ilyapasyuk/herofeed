@@ -5,7 +5,7 @@ import MoviePageComponent from './movie-page/movie-page.component';
 import MoviesService from './movies.service';
 
 export default angular.module('app.movies', [])
-    .factory('Movies', MoviesService)
+    .service('Movies', MoviesService)
     .component('movieList', MovieListComponent)
     .component('movieItem', MovieItemComponent)
     .component('moviePage', MoviePageComponent)
