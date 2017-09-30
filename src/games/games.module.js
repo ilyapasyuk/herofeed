@@ -4,7 +4,7 @@ import GameComponent from './game/game.component';
 import GamesService from './games.service';
 
 export default angular.module('app.games', [])
-    .factory('Games', GamesService)
+    .service('Games', GamesService)
     .component('gamesList', GamesListComponent)
     .component('game', GameComponent)
     .config(($stateProvider) => {

@@ -62,6 +62,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     const CleanPlugin = require('clean-webpack-plugin');
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
     const autoprefixer = require('autoprefixer');
+    const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
     config.output.filename = '[name]-[chunkhash].js';
 
@@ -93,8 +94,20 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     );
 
     config.plugins.push(
-        new CleanPlugin(['dist/*.*'], {
+        new CleanPlugin([
+            'dist/*.*',
+            'dist/icons*'
+        ], {
             exclude: ['CNAME']
+        })
+    );
+
+    config.plugins.push(
+        new FaviconsWebpackPlugin({
+            logo: path.resolve(__dirname, 'src/favicon.png'),
+            icons: {
+                appleStartup: false
+            }
         })
     );
 }

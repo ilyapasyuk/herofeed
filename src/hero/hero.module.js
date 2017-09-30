@@ -3,7 +3,7 @@ import HeroPageComponent from './hero-page/hero-page.component';
 import HeroService from './hero.service';
 
 export default angular.module('app.hero', [])
-    .factory('Hero', HeroService)
+    .service('Hero', HeroService)
     .component('heroPage', HeroPageComponent)
     .config(($stateProvider) => {
         $stateProvider.state('hero', {
