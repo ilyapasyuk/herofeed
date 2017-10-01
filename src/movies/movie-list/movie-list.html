@@ -1,6 +1,22 @@
 <div class="movies-list container">
-    <movie-item ng-repeat="item in movieList.list[0]"
-           data="item"
-           class="col-sm-3">
+    <div class="movies-list__filter col-xs-12">
+        <button ng-click="movieList.getThisYearMovies()"
+                class="button button_primary">В этом году
+        </button>
+        <button ng-click="movieList.getThisMonthMovies()"
+                class="button button_primary">В этом месяце
+        </button>
+    </div>
+
+    <movie-item ng-repeat="item in movieList.data"
+                data="item"
+                class="col-sm-3">
     </movie-item>
+
+    <div ng-if="!movieList.data.length"
+         class="col-xs-12">
+        <div class="movies-list__filter_empty">
+            <h4>Вууупс, кажется в это время фильмы не выходят</h4>
+        </div>
+    </div>
 </div>

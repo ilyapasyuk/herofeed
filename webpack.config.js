@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     const CleanPlugin = require('clean-webpack-plugin');
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
     const autoprefixer = require('autoprefixer');
-    const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+    const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
     config.output.filename = '[name]-[chunkhash].js';
 

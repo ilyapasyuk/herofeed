@@ -16,6 +16,7 @@ export default angular.module('app.movies', [])
             resolve: {
                 list: (Movies) => {
                     /* @ngInject */
+
                     return Movies.getList();
                 }
             }
@@ -25,6 +26,7 @@ export default angular.module('app.movies', [])
             resolve: {
                 data: (Movies, $stateParams) => {
                     /* @ngInject */
+
                     return Movies.getMovie($stateParams.idMovie);
                 }
             }

@@ -13,7 +13,8 @@
   "dependencies": {
     "@uirouter/angularjs": "1.0.5",
     "angular": "1.6.5",
-    "material-icons": "0.1.0"
+    "material-icons": "0.1.0",
+    "moment": "2.18.1"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
