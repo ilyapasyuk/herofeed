@@ -4,9 +4,9 @@
   display: inline-block;
   font-weight: 300;
   cursor: pointer;
-  height: $base-size * 9;
-  line-height: $base-size * 9;
-  font-size: 16px;
+  height: $base-size * 8;
+  line-height: $base-size * 8;
+  font-size: 14px;
   padding: 0 16px;
   text-align: center;
   white-space: nowrap;
@@ -32,6 +32,20 @@
     &:active,
     &-active {
       background-color: $primary-darker;
+    }
+  }
+
+  &_danger {
+    background-color: $danger-light;
+    color: $danger-lighter;
+
+    &:hover {
+      background-color: $danger-dark;
+    }
+
+    &:active,
+    &-active {
+      background-color: $danger-darker;
     }
   }
 }
