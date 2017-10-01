@@ -3,9 +3,22 @@ export default function($http) {
 
     return {
         getList() {
-            const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies?api_key=keyFR1R9B9wqDZeOz&sort%5B0%5D%5Bfield%5D=date_realise&sort%5B0%5D%5Bdirection%5D=desc';
+            const params = {
+                api_key: 'keyFR1R9B9wqDZeOz',
+                sort: [{
+                    field: 'date_realise',
+                    direction: 'desc'
+                }]
+            };
 
-            return $http.get(movieListUrl).then((response) => {
+            const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies';
+
+            return $http({
+                url: movieListUrl,
+                method: 'GET',
+                params,
+                paramSerializer: '$httpParamSerializerJQLike'
+            }).then((response) => {
                 return Object.values(response.data.records);
             });
         },
