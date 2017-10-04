@@ -1,0 +1,12 @@
+<div class="news-page container">
+    <div class="news-page__cover">
+        <img src="{{ newsPage.data.cover[0].url }}"
+             alt="{{ newsPage.data.name }}">
+    </div>
+    <div class="news-page__title">
+        <h1>{{ newsPage.data.name }}</h1>
+    </div>
+    <div class="news-page__note">
+        {{ newsPage.data.note }}
+    </div>
+</div>
