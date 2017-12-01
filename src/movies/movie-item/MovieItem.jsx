@@ -4,10 +4,10 @@ import './movie-item.scss';
 export default class MovieItem extends React.Component {
     constructor(props) {
         super(props);
-        this.type = props.item.fields.type;
-        this.title = props.item.fields.title_ru;
-        this.cover = props.item.fields.cover[0].thumbnails.large.url;
-        this.id = props.item.fields.id;
+        this.type = props.data.type;
+        this.title = props.data.title_ru;
+        this.cover = props.data.cover[0].thumbnails.large.url;
+        this.id = props.data.id;
         this.handleClick = this.handleClick.bind(this);
     }
 
