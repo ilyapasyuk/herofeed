@@ -7,11 +7,12 @@ export default class MovieItem extends React.Component {
         this.type = props.item.fields.type;
         this.title = props.item.fields.title_ru;
         this.cover = props.item.fields.cover[0].thumbnails.large.url;
-        this.handleClick = this.handleClick.bind(this);
+        this.id = props.item.fields.id;
+        MovieItem.handleClick = MovieItem.handleClick.bind(this);
     }
 
-    handleClick() {
-        console.log('this is:', this);
+    static handleClick(id) {
+        return window.location.href = `#!/movie/${id}`
     }
 
     render() {
@@ -24,7 +25,7 @@ export default class MovieItem extends React.Component {
                     <img src={this.cover} />
                 </div>
                 <a className="movie-item__title"
-                   ui-sref="moviePage({ idMovie: movieItem.data.fields.id })">
+                   onClick={() => MovieItem.handleClick(this.id)}>
                     {this.title}
                 </a>
             </div>
