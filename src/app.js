@@ -4,8 +4,10 @@ import MoviesModule from './movies/movies.module';
 import GamesModule from './games/games.module';
 import HeroModule from './hero/hero.module';
 import NewsModule from './news/news.module';
+require('ngreact');
 
 angular.module('app', [
+    'react',
     CoreModule,
     MoviesModule,
     GamesModule,
