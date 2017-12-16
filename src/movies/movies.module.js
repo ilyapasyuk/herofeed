@@ -1,13 +1,11 @@
 import angular from 'angular';
 import MovieListComponent from './movie-list/movie-list.directive';
-import MovieItemComponent from './movie-item/movie-item.directive';
 import MoviePageComponent from './movie-page/movie-page.component';
 import MoviesService from './movies.service';
 
 export default angular.module('app.movies', [])
     .service('Movies', MoviesService)
     .directive('movieList', MovieListComponent)
-    .directive('movieItem', MovieItemComponent)
     .component('moviePage', MoviePageComponent)
     .config(($stateProvider) => {
         $stateProvider
