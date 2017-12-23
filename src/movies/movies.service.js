@@ -1,6 +1,7 @@
-/* @ngInject */
-export default function($http) {
+import axios from 'axios';
+import Qs from 'qs';
 
+export default () => {
     return {
         getList() {
             const params = {
@@ -13,19 +14,19 @@ export default function($http) {
 
             const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies';
 
-            return $http({
+            return axios({
+                method: 'get',
                 url: movieListUrl,
-                method: 'GET',
                 params,
-                paramSerializer: '$httpParamSerializerJQLike'
+                paramsSerializer: () => Qs.stringify(params, {arrayFormat: 'brackets'})
             }).then((response) => {
-                return Object.values(response.data.records);
+                return response.data.records;
             });
         },
         getMovie(idMovie) {
             const idMovieUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idMovie}"`;
 
-            return $http.get(idMovieUrl).then((response) => response.data.records[0].fields);
+            return axios.get(idMovieUrl).then((response) => response.data.records[0].fields);
         }
     };
-}
+};

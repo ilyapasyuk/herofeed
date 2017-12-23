@@ -13,10 +13,12 @@
   "dependencies": {
     "@uirouter/angularjs": "1.0.7",
     "angular": "1.6.6",
+    "axios": "0.17.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "material-icons": "0.1.0",
     "moment": "2.18.1",
+    "qs": "6.5.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "redux": "3.7.2"

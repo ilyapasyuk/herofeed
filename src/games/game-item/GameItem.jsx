@@ -8,7 +8,6 @@ export default class GameItem extends React.Component {
         this.title = props.data.title_en;
         this.date_relise = props.data.date_relise;
         this.platforms = props.data.platforms || null;
-        console.log(props);
     }
 
     render() {
