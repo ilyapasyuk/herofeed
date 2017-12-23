@@ -1,12 +1,10 @@
-/* @ngInject */
-export default ($http) => {
-    return {
-        getHero(idHero) {
-            const idUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/characters?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idHero}"`;
+import axios from 'axios';
 
-            return $http.get(idUrl).then((response) => {
-                return response.data.records[0].fields;
-            });
-        }
-    };
+export default class HeroService {
+    getHero(idHero) {
+        const idUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/characters?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idHero}"`;
+        return axios.get(idUrl).then((response) => {
+            return response.data.records[0].fields;
+        });
+    }
 };
