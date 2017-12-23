@@ -5,7 +5,7 @@ export default function($http) {
     return {
         getList() {
             return $http.get(SOURCE).then((response) => {
-                return Object.values(response.data);
+                return Object.values(response.data.records);
             });
         }
     };
