@@ -5,7 +5,6 @@ export default class MoviePage extends React.Component {
     constructor(props) {
         super(props);
         this.data = this.props.data;
-        console.log(props);
     }
 
     render() {
