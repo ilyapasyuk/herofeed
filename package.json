@@ -42,7 +42,7 @@
     "extract-text-webpack-plugin": "3.0.1",
     "favicons": "4.8.6",
     "favicons-webpack-plugin": "0.0.7",
-    "gh-pages": "1.0.0",
+    "gh-pages": "1.1.0",
     "html-loader": "0.5.1",
     "html-webpack-plugin": "2.30.1",
     "ngreact": "0.5.1",
