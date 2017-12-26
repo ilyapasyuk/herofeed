@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import { Link } from 'react-router-dom'
 import './menu.scss';
 
 export default class Menu extends React.Component {
@@ -17,10 +18,6 @@ export default class Menu extends React.Component {
         ];
     }
 
-    handleClick(id) {
-        return window.location.href = `#!/${id}`
-    }
-
     render() {
         return (
             <div className="menu">
@@ -30,12 +27,12 @@ export default class Menu extends React.Component {
 
                 <div className="menu__items">
                     {this.pages.map((page) => {
-                        return <a className="menu__item"
-                                  onClick={() => this.handleClick(page.state)}
+                        return <Link to={page.state}
+                                     className="menu__item"
                                   key={page.state}>
                             <i className={ `mi mi-${page.icon}` }></i>
                             { page.name}
-                        </a>
+                        </Link>
                     })}
                 </div>
             </div>
