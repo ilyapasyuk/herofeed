@@ -11,8 +11,6 @@
   "author": "Ilya Pasyuk <pasyuk.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@uirouter/angularjs": "1.0.12",
-    "angular": "1.6.8",
     "axios": "0.17.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
@@ -21,6 +19,7 @@
     "qs": "6.5.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
+    "react-router-dom": "4.2.2",
     "redux": "3.7.2"
   },
   "devDependencies": {
