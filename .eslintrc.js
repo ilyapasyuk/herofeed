@@ -4,8 +4,8 @@ module.exports = {
         'node': true
     },
     'extends': [
-        'airbnb-base',
-        'angular'
+        'airbnb',
+        'react'
     ],
     'rules': {
         'arrow-body-style': ['off'],
@@ -19,12 +19,6 @@ module.exports = {
         'max-len': ['off'],
         'no-param-reassign': ['error', {
             'props': true,
-            'ignorePropertyModificationsFor': [
-                '$delegate',
-                '$rootScope',
-                '$scope',
-                '$window'
-            ]
         }],
         'object-curly-spacing': ['off'],
         'padded-blocks': ['off'],
