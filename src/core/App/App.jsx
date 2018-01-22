@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Menu from '../Menu/Menu.jsx';
 import Main from '../Main/Main.jsx';
 import './app.scss';
 
-const App = () => (
-    <div>
-        <Menu/>
-        <Main/>
-    </div>
-);
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-export default App
+    render() {
+        return (
+            <div>
+                <Menu />
+                <Main />
+          </div>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    console.log(state);
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps)(App);

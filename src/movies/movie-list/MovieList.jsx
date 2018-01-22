@@ -4,7 +4,7 @@ import './movie-list.scss';
 import MoviesService from '../movies.service';
 const Movies = new MoviesService();
 
-export default class MovieList extends React.Component {
+class MovieList extends Component {
     constructor() {
         super();
         this.state = {
@@ -36,3 +36,4 @@ export default class MovieList extends React.Component {
     }
 }
 
+export default MovieList;
