@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './movie-page.scss';
 
-export default class MoviePage extends React.Component {
+export default class MoviePage extends Component {
     constructor(props) {
         super(props);
         this.data = this.props.data;
@@ -12,8 +12,10 @@ export default class MoviePage extends React.Component {
             <div className="movie-page container">
                 <div className="col-sm-3">
                     <div className="movie-page__cover">
-                        <img src={ this.data.cover[0].thumbnails.large.url }
-                             alt={ this.data.title_ru } />
+                        <img
+                            src={this.data.cover[0].thumbnails.large.url}
+                            alt={this.data.title_ru}
+                        />
                     </div>
                 </div>
                 <div className="col-sm-4">

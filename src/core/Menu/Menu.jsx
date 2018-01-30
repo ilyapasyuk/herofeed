@@ -1,20 +1,20 @@
 import React, {Component, PropTypes} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './menu.scss';
 
-export default class Menu extends React.Component {
+export default class Menu extends Component {
     constructor(props) {
         super(props);
         this.pages = [
             {
                 state: 'games',
                 name: 'Игры',
-                icon: 'games'
+                icon: 'games',
             }, {
                 state: 'movies',
                 name: 'Кино',
-                icon: 'local-movies'
-            }
+                icon: 'local-movies',
+            },
         ];
     }
 
@@ -26,14 +26,16 @@ export default class Menu extends React.Component {
                 </div>
 
                 <div className="menu__items">
-                    {this.pages.map((page) => {
-                        return <Link to={page.state}
-                                     className="menu__item"
-                                  key={page.state}>
-                            <i className={ `mi mi-${page.icon}` }></i>
+                    {this.pages.map((page) => (
+                        <Link
+                            to={page.state}
+                            className="menu__item"
+                            key={page.state}
+                        >
+                            <i className={`mi mi-${page.icon}`} />
                             { page.name}
                         </Link>
-                    })}
+                    ))}
                 </div>
             </div>
 

@@ -4,42 +4,42 @@ const webpack = require('webpack');
 
 const ENV = {
     PRODUCTION: 'production',
-    DEVELOPMENT: 'development'
+    DEVELOPMENT: 'development',
 };
 
 const config = {
     entry: {
-        app: './src/index.jsx'
+        app: './src/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         }),
         // Move all files from node modules to 'lib' chunk
         new webpack.optimize.CommonsChunkPlugin({
             name: 'lib',
             minChunks: (module) => {
                 return module.context && (module.context.indexOf('node_modules') !== -1);
-            }
+            },
         }),
         new HtmlPlugin({
             template: './src/index.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                conservativeCollapse: true
-            }
-        })
+                conservativeCollapse: true,
+            },
+        }),
     ],
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: 'babel-loader'
+            use: 'babel-loader',
         }, {
             test: /\.html$/,
             exclude: /node_modules/,
@@ -50,13 +50,12 @@ const config = {
                     minimize: true,
                     removeComments: true,
                     collapseWhitespace: true,
-                    conservativeCollapse: true
-                }
-            }]
-        }]
-    }
+                    conservativeCollapse: true,
+                },
+            }],
+        }],
+    },
 };
-
 
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
     const CleanPlugin = require('clean-webpack-plugin');
@@ -73,63 +72,53 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
         use: ExtractTextPlugin.extract([{
             loader: 'css-loader',
             options: {
-                minimize: true
-            }
+                minimize: true,
+            },
         }, {
             loader: 'postcss-loader',
             options: {
                 plugins: [
                     autoprefixer({
-                        browsers: ['last 2 versions']
-                    })
-                ]
-            }
+                        browsers: ['last 2 versions'],
+                    }),
+                ],
+            },
         }, {
-            loader: 'sass-loader'
-        }])
+            loader: 'sass-loader',
+        }]),
     });
 
-    config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin()
-    );
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
 
-    config.plugins.push(
-        new CleanPlugin([
-            'dist/*.*',
-            'dist/icons*'
-        ], {
-            exclude: ['CNAME']
-        })
-    );
+    config.plugins.push(new CleanPlugin([
+        'dist/*.*',
+        'dist/icons*',
+    ], {
+        exclude: ['CNAME'],
+    }));
 
-    config.plugins.push(
-        new FaviconsWebpackPlugin({
-            logo: path.resolve(__dirname, 'src/favicon.png'),
-            icons: {
-                appleStartup: false
-            }
-        })
-    );
+    config.plugins.push(new FaviconsWebpackPlugin({
+        logo: path.resolve(__dirname, 'src/favicon.png'),
+        icons: {
+            appleStartup: false,
+        },
+    }));
 }
-
 
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
     config.module.rules.push({
         test: /\.scss/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'],
     });
 
-    config.plugins.push(
-        new webpack.HotModuleReplacementPlugin()
-    );
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
     config.devServer = {
         contentBase: path.resolve(__dirname, 'dist'),
         open: true,
-        hot: true
+        hot: true,
     };
 }
-
 
 module.exports = config;

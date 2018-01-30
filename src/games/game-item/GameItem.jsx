@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import './game.scss';
 
-export default class GameItem extends React.Component {
+export default class GameItem extends Component {
     constructor(props) {
         super(props);
         this.type = props.data.type;
@@ -20,12 +20,14 @@ export default class GameItem extends React.Component {
                     {this.date_relise}
                 </div>
                 <div className="game__platforms">
-                    {this.platforms.map((platform) => {
-                        return <span className="game__platform"
-                                     key={platform}>
-                    {platform}
-                    </span>
-                    })}
+                    {this.platforms.map((platform) => (
+                        <span
+                            className="game__platform"
+                            key={platform}
+                        >
+                            {platform}
+                        </span>
+                    ))}
                 </div>
             </div>
         );

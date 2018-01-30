@@ -11,7 +11,7 @@ const store = configureStore();
 ReactDOM.render(
     <HashRouter>
         <Provider store={store}>
-            <App/>
+            <App />
         </Provider>
     </HashRouter>,
     document.getElementById('app')

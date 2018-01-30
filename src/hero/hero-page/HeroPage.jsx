@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import './hero-page.scss';
 
-export default class HeroPage extends React.Component {
+export default class HeroPage extends Component {
     constructor(props) {
         super(props);
         this.data = props.data;

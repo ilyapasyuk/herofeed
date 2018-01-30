@@ -7,8 +7,8 @@ export default class MoviesService {
             api_key: 'keyFR1R9B9wqDZeOz',
             sort: [{
                 field: 'date_realise',
-                direction: 'desc'
-            }]
+                direction: 'desc',
+            }],
         };
 
         const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies';
@@ -17,11 +17,9 @@ export default class MoviesService {
             method: 'get',
             url: movieListUrl,
             params,
-            paramsSerializer: () => Qs.stringify(params, {arrayFormat: 'brackets'})
+            paramsSerializer: () => Qs.stringify(params, {arrayFormat: 'brackets'}),
         })
-            .then((response) => {
-                return response.data.records;
-            });
+            .then((response) => response.data.records);
     }
 
     getMovie(idMovie) {

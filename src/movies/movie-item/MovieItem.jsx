@@ -12,20 +12,22 @@ export default class MovieItem extends React.Component {
     }
 
     handleClick(id) {
-        return window.location.href = `#!/movie/${id}`
+        window.location.href = `#!/movie/${id}`;
     }
 
     render() {
         return (
             <div className="movie-item">
                 <div className="movie-item__poster">
-                        <span className={`movie-item__type movie-item__type_${this.type}`}>
-                            {this.type}
-                        </span>
+                    <span className={`movie-item__type movie-item__type_${this.type}`}>
+                        {this.type}
+                    </span>
                     <img src={this.cover} />
                 </div>
-                <a className="movie-item__title"
-                   onClick={() => this.handleClick(this.id)}>
+                <a
+                    className="movie-item__title"
+                    onClick={() => this.handleClick(this.id)}
+                >
                     {this.title}
                 </a>
             </div>

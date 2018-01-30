@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Menu from '../Menu/Menu.jsx';
 import Main from '../Main/Main.jsx';
 import './app.scss';
@@ -14,15 +14,14 @@ class App extends Component {
             <div>
                 <Menu />
                 <Main />
-          </div>
+            </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
-        user: state.user
+        user: state.user,
     };
 }
 
