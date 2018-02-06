@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import './game.scss';
 
 export default class GameItem extends Component {

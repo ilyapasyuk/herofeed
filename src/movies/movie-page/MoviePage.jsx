@@ -4,7 +4,7 @@ import './movie-page.scss';
 export default class MoviePage extends Component {
     constructor(props) {
         super(props);
-        this.data = this.props.data;
+        this.data = props.data;
     }
 
     render() {

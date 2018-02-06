@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MovieItem from '../movie-item/MovieItem.jsx';
+import MovieItem from '../movie-item/MovieItem';
 import './movie-list.scss';
 import MoviesService from '../movies.service';
 

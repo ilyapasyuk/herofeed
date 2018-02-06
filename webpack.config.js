@@ -22,9 +22,7 @@ const config = {
         // Move all files from node modules to 'lib' chunk
         new webpack.optimize.CommonsChunkPlugin({
             name: 'lib',
-            minChunks: (module) => {
-                return module.context && (module.context.indexOf('node_modules') !== -1);
-            },
+            minChunks: (module) => module.context && (module.context.indexOf('node_modules') !== -1),
         }),
         new HtmlPlugin({
             template: './src/index.html',
@@ -54,6 +52,12 @@ const config = {
                 },
             }],
         }],
+    },
+    resolve: {
+        extensions: [
+            '.js',
+            '.jsx',
+        ],
     },
 };
 

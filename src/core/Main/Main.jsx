@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import MovieList from '../../movies/movie-list/MovieList.jsx';
-import GameList from '../../games/games-list/GamesList.jsx';
+import MovieList from '../../movies/movie-list/MovieList';
+import GameList from '../../games/games-list/GamesList';
 import './main.scss';
 
 const Main = () => (

@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import './movie-item.scss';
 
-export default class MovieItem extends React.Component {
+export default class MovieItem extends Component {
     constructor(props) {
         super(props);
         this.type = props.data.type;
