@@ -25,12 +25,15 @@ const config = {
             minChunks: (module) => module.context && (module.context.indexOf('node_modules') !== -1),
         }),
         new HtmlPlugin({
-            template: './src/index.html',
+            template: './src/index.ejs',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
                 conservativeCollapse: true,
             },
+        }),
+        new webpack.DefinePlugin({
+            ENV: JSON.stringify(process.env.NODE_ENV),
         }),
     ],
     module: {
