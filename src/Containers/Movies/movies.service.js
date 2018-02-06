@@ -11,7 +11,7 @@ export default class MoviesService {
             }],
         };
 
-        const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies';
+        const movieListUrl = 'https://api.airtable.com/v0/app0a8OYcOZAv6uCv/Movies';
 
         return axios({
             method: 'get',

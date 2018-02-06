@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import GameItem from '../game-item/GameItem';
-import './games-list.scss';
+import GameItem from '../GameItem';
+import './style.scss';
 import GamesService from '../games.service';
 
 const Games = new GamesService();

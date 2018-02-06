@@ -7,13 +7,13 @@ export default class Menu extends Component {
         super(props);
         this.pages = [
             {
-                state: '/games',
+                state: '/Games',
                 name: 'Игры',
-                icon: 'games',
+                icon: 'Games',
             }, {
-                state: '/movies',
+                state: '/Movies',
                 name: 'Кино',
-                icon: 'local-movies',
+                icon: 'local-Movies',
             },
         ];
     }

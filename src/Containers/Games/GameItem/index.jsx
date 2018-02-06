@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './game.scss';
+import './style.scss';
 
 export default class GameItem extends Component {
     constructor(props) {

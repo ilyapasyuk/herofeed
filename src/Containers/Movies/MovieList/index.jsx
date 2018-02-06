@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import MovieItem from '../movie-item/MovieItem';
-import './movie-list.scss';
+import MovieItem from '../MovieItem';
+import './style.scss';
 import MoviesService from '../movies.service';
 
 const Movies = new MoviesService();
