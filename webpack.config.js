@@ -22,17 +22,18 @@ const config = {
         // Move all files from node modules to 'lib' chunk
         new webpack.optimize.CommonsChunkPlugin({
             name: 'lib',
-            minChunks: (module) => {
-                return module.context && (module.context.indexOf('node_modules') !== -1);
-            },
+            minChunks: (module) => module.context && (module.context.indexOf('node_modules') !== -1),
         }),
         new HtmlPlugin({
-            template: './src/index.html',
+            template: './src/index.ejs',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
                 conservativeCollapse: true,
             },
+        }),
+        new webpack.DefinePlugin({
+            ENV: JSON.stringify(process.env.NODE_ENV),
         }),
     ],
     module: {
@@ -54,6 +55,12 @@ const config = {
                 },
             }],
         }],
+    },
+    resolve: {
+        extensions: [
+            '.js',
+            '.jsx',
+        ],
     },
 };
 

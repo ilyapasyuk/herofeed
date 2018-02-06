@@ -1,0 +1,82 @@
+@import '../../../UI/styles/variables';
+
+movie-item {
+  display: block;
+}
+
+.movie-item {
+  display: block;
+  padding: 0;
+  background: white;
+  position: relative;
+  border-radius: $base-size $base-size $base-size/2 $base-size/2;
+  margin-bottom: 20px;
+  border: 1px solid mix(#fafafa, black, 90%);
+  width: 100%;
+  overflow: hidden;
+
+  &__poster {
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      height: 200px;
+    }
+
+    @media (min-width: 992px) {
+      height: 290px;
+    }
+
+    @media (min-width: 1200px) {
+      height: 340px;
+    }
+  }
+
+  &__title {
+    display: block;
+    cursor: pointer;
+    color: $menu-dark;
+    text-decoration: none;
+    background-color: transparent;
+    padding: $base-size * 3 $base-size * 4;
+    font-size: 14px;
+    line-height: $base-size * 7;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $complete-lighter;
+    }
+  }
+
+  &__type {
+    color: white;
+    position: absolute;
+    left: $base-size * 2;
+    top: $base-size * 2;
+    background-color: $primary-light;
+    border-radius: $base-size;
+    white-space: nowrap;
+    padding: $base-size $base-size*2;
+    margin-right: $base-size * 2;
+    font-size: 12px;
+    pointer-events: none;
+
+    &_movie {
+      background-color: $danger-light;
+    }
+
+    &_serial {
+      background-color: $complete-light;
+    }
+
+    &_animation {
+      background-color: $warning;
+    }
+  }
+}

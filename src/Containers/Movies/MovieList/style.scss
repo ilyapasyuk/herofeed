@@ -1,0 +1,18 @@
+@import '../../../UI/styles/variables';
+
+.movies-list {
+  padding-top: $base-size * 4;
+  padding-bottom: $base-size * 4;
+
+  &__filter {
+    margin-bottom: $base-size * 4;
+
+    &_empty {
+      background-color: $complete-light;
+      color: $complete-lighter;
+      padding: $base-size * 4;
+      text-align: center;
+      border-radius: $base-size;
+    }
+  }
+}

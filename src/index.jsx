@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './core/App/App.jsx';
 import {HashRouter} from 'react-router-dom';
-import './core/core.scss';
+import App from './UI/App';
+import './UI/styles/core.scss';
 
 ReactDOM.render(
     <HashRouter>
