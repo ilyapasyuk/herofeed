@@ -1,36 +1,49 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import './style.scss';
 
-export default class MovieItem extends Component {
+class MovieItem extends Component {
     constructor(props) {
         super(props);
-        this.type = props.data.type;
-        this.title = props.data.title_ru;
-        this.cover = props.data.cover[0].thumbnails.large.url;
-        this.id = props.data.id;
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(id) {
-        window.location.href = `#!/movie/${id}`;
+        this.state = {
+            type: props.data.type,
+            title: props.data.title_ru,
+            cover: props.data.cover[0].thumbnails.large.url,
+            id: props.data.id,
+        };
     }
 
     render() {
+        const {
+            type,
+            title,
+            cover,
+            id,
+        } = this.state;
+
         return (
             <div className="movie-item">
                 <div className="movie-item__poster">
-                    <span className={`movie-item__type movie-item__type_${this.type}`}>
-                        {this.type}
+                    <span className={`movie-item__type movie-item__type_${type}`}>
+                        {type}
                     </span>
-                    <img src={this.cover} />
+
+                    <img src={cover} />
                 </div>
-                <a
+                <Link
                     className="movie-item__title"
-                    onClick={() => this.handleClick(this.id)}
+                    to={`movie/${id}`}
                 >
-                    {this.title}
-                </a>
+                    {title}
+                </Link>
             </div>
         );
     }
 }
+
+MovieItem.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default MovieItem;
