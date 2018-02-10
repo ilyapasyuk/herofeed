@@ -35,7 +35,7 @@ export default class MoviePage extends Component {
         } = this.state;
 
         return (
-            <div className="movie-page container">
+            <div className="movie-page row">
                 <div className="col-sm-3">
                     <div className="movie-page__cover">
                         <img

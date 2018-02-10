@@ -11,16 +11,16 @@ const Main = () => (
             <Route
                 exact
                 path="/"
-                component={GameList}
+                component={MovieList}
             />
             <Route
                 exact
-                path="/games"
-                component={GameList}
-            />
-            <Route
                 path="/movies"
                 component={MovieList}
+            />
+            <Route
+                path="/games"
+                component={GameList}
             />
             <Route
                 path="/movie/:id"

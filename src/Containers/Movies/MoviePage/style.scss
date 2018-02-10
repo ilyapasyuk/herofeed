@@ -1,7 +1,6 @@
 @import '../../../UI/styles/variables';
 
 .movie-page {
-  @include inner;
   padding-top: $base-size * 4;
   padding-bottom: $base-size * 4;
 
