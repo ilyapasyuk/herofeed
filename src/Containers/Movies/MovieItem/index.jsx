@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import './style.scss';
+import Moment from 'moment';
 
 class MovieItem extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class MovieItem extends Component {
             title: props.data.title_ru,
             cover: props.data.cover[0].thumbnails.large.url,
             id: props.data.id,
+            dateRealise: Moment(props.data.date_realise).format('Do MMMM YYYY'),
         };
     }
 
@@ -20,6 +22,7 @@ class MovieItem extends Component {
             title,
             cover,
             id,
+            dateRealise,
         } = this.state;
 
         return (
@@ -27,6 +30,10 @@ class MovieItem extends Component {
                 <div className="movie-item__poster">
                     <span className={`movie-item__type movie-item__type_${type}`}>
                         {type}
+                    </span>
+
+                    <span className="movie-item__date-realise">
+                        {dateRealise}
                     </span>
 
                     <img src={cover} />
