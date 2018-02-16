@@ -63,9 +63,9 @@ movie-item {
     border-radius: $base-size;
     white-space: nowrap;
     padding: $base-size $base-size*2;
-    margin-right: $base-size * 2;
     font-size: 12px;
     pointer-events: none;
+    text-transform: capitalize;
 
     &_movie {
       background-color: $danger-light;
@@ -78,5 +78,18 @@ movie-item {
     &_animation {
       background-color: $warning;
     }
+  }
+
+  &__date-realise {
+    color: white;
+    position: absolute;
+    right: $base-size * 2;
+    top: $base-size * 2;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: $base-size;
+    white-space: nowrap;
+    padding: $base-size $base-size*2;
+    font-size: 12px;
+    pointer-events: none;
   }
 }
