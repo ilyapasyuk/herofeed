@@ -8,9 +8,9 @@ class MovieItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: props.data.type,
-            title: props.data.title_ru,
-            cover: props.data.cover[0].thumbnails.large.url,
+            type: props.data.type ? props.data.type : '',
+            title: props.data.title_ru ? props.data.title_ru : '',
+            cover: props.data.cover ? props.data.cover[0].thumbnails.large.url : '',
             id: props.data.id,
             dateRealise: Moment(props.data.date_realise).format('Do MMMM YYYY'),
         };
