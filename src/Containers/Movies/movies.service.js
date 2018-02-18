@@ -10,16 +10,13 @@ export default class MoviesService {
     /**
      * @return {Object} with movie list.
      */
-    getList() {
+    getList(query) {
         /**
          * @type {Object}
          */
         const params = {
             api_key: 'keyFR1R9B9wqDZeOz',
-            sort: [{
-                field: 'date_realise',
-                direction: 'desc',
-            }],
+            ...query,
         };
 
         /**
