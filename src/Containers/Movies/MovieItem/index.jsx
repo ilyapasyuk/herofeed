@@ -26,7 +26,11 @@ class MovieItem extends Component {
         } = this.state;
 
         return (
-            <div className="movie-item">
+            <Link
+                className="movie-item"
+                to={`movie/${id}`}
+                alt={title}
+            >
                 <div className="movie-item__poster">
                     <span className={`movie-item__type movie-item__type_${type}`}>
                         {type}
@@ -36,15 +40,15 @@ class MovieItem extends Component {
                         {dateRealise}
                     </span>
 
-                    <img src={cover} />
+                    <img
+                        src={cover}
+                        alt={title}
+                    />
                 </div>
-                <Link
-                    className="movie-item__title"
-                    to={`movie/${id}`}
-                >
+                <div className="movie-item__title">
                     {title}
-                </Link>
-            </div>
+                </div>
+            </Link>
         );
     }
 }
