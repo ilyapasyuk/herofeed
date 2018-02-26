@@ -52,7 +52,7 @@
     "style-loader": "0.20.2",
     "stylus": "0.54.5",
     "stylus-loader": "3.0.1",
-    "webpack": "3.11.0",
+    "webpack": "4.0.0",
     "webpack-dev-server": "2.11.1"
   }
 }
