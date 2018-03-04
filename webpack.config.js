@@ -15,14 +15,23 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
     },
+    optimization: {
+        minimize: false,
+        splitChunks: {
+            cacheGroups: {
+                default: false,
+                commons: {
+                    test: /node_modules/,
+                    name: 'lib',
+                    chunks: 'initial',
+                    minSize: 1,
+                },
+            },
+        },
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        }),
-        // Move all files from node modules to 'lib' chunk
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'lib',
-            minChunks: (module) => module.context && (module.context.indexOf('node_modules') !== -1),
         }),
         new HtmlPlugin({
             template: './src/index.ejs',
@@ -68,7 +77,6 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     const CleanPlugin = require('clean-webpack-plugin');
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
     const autoprefixer = require('autoprefixer');
-    const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
     config.output.filename = '[name]-[chunkhash].js';
 
@@ -95,20 +103,13 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
         }]),
     });
 
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    config.optimization.minimize = true;
 
     config.plugins.push(new CleanPlugin([
         'dist/*.*',
         'dist/icons*',
     ], {
         exclude: ['CNAME'],
-    }));
-
-    config.plugins.push(new FaviconsWebpackPlugin({
-        logo: path.resolve(__dirname, 'src/favicon.png'),
-        icons: {
-            appleStartup: false,
-        },
     }));
 }
 
