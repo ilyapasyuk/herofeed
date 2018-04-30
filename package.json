@@ -15,7 +15,7 @@
     "axios": "0.18.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
-    "material-icons": "0.2.1",
+    "material-icons": "0.2.2",
     "moment": "2.22.1",
     "prop-types": "15.6.1",
     "qs": "6.5.1",
