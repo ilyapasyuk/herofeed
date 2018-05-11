@@ -33,7 +33,6 @@
     "clean-webpack-plugin": "0.1.19",
     "cross-env": "5.1.5",
     "css-loader": "0.28.11",
-    "esdoc": "1.0.4",
     "esdoc-standard-plugin": "1.0.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "16.1.0",
