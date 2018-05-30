@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
 
     config.output.filename = '[name]-[chunkhash].js';
 
-    config.plugins.push(new ExtractTextPlugin('app-[contenthash].css'));
+    config.plugins.push(new ExtractTextPlugin('app-[chunkhash].css'));
     config.module.rules.push({
         test: /\.scss/,
         exclude: /node_modules/,
