@@ -104,6 +104,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
     });
 
     config.optimization.minimize = true;
+    config.mode = ENV.PRODUCTION;
 
     config.plugins.push(new CleanPlugin([
         'dist/*.*',
@@ -127,6 +128,7 @@ if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
         open: true,
         hot: true,
     };
+    config.mode = ENV.DEVELOPMENT;
 }
 
 module.exports = config;
