@@ -35,9 +35,9 @@ export default class MoviePage extends Component {
         } = this.state;
 
         return (
-            <div className="movie-page row">
+            <div className="Movie-page row">
                 <div className="col-sm-3">
-                    <div className="movie-page__cover">
+                    <div className="Movie-page__cover">
                         <img
                             src={cover}
                             alt={title}
@@ -45,19 +45,19 @@ export default class MoviePage extends Component {
                     </div>
                 </div>
                 <div className="col-sm-4">
-                    <div className="movie-page__item">
+                    <div className="Movie-page__item">
                         <b>Релиз</b>
                         <span>{dateRealise}</span>
                     </div>
-                    <div className="movie-page__item">
+                    <div className="Movie-page__item">
                         <b>Вселенная</b>
                         <span>{ universe }</span>
                     </div>
-                    <div className="movie-page__item">
+                    <div className="Movie-page__item">
                         <b>Тип</b>
                         <span>{ type }</span>
                     </div>
-                    <div className="movie-page__item">
+                    <div className="Movie-page__item">
                         <b>Оригинальное название</b>
                         <span>{ title }</span>
                     </div>

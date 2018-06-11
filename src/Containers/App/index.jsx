@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
-import Menu from '../Menu';
-import Main from '../Main';
+import Menu from '../../UI/Menu';
+import Main from '../../UI/Main';
 
 function App() {
     return (

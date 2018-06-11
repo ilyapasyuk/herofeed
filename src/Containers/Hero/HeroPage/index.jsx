@@ -9,7 +9,7 @@ export default class HeroPage extends Component {
 
     render() {
         return (
-            <div className="hero-page container">
+            <div className="Hero-page container">
                 { this.data.title_ru }
             </div>
         );

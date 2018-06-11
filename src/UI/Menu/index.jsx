@@ -20,16 +20,16 @@ export default class Menu extends Component {
 
     render() {
         return (
-            <div className="menu">
-                <div className="menu__brand">
+            <div className="Menu">
+                <div className="Menu__brand">
                     Herofeed
                 </div>
 
-                <div className="menu__items">
+                <div className="Menu__items">
                     {this.pages.map((page) => (
                         <Link
                             to={page.state}
-                            className="menu__item"
+                            className="Menu__item"
                             key={page.state}
                         >
                             <i className={`mi mi-${page.icon}`} />

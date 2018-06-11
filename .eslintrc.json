@@ -1,0 +1,60 @@
+{
+    "env": {
+    "browser": true,
+        "node": true
+},
+    "globals": {
+    "ENV": true,
+        "PARTNER": true,
+        "TYPE": true,
+        "angular": true
+},
+    "extends": [
+    "airbnb"
+],
+    "rules": {
+    "import/extensions": ["js", "jsx"],
+        "import/no-unresolved": [
+        "error",
+        {
+            "ignore": [ "Components/"]
+        }
+    ],
+        "import/no-extraneous-dependencies": ["off"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-first-prop-new-line": ["error", "multiline"],
+        "arrow-body-style": ["off"],
+        "arrow-parens": ["error", "always"],
+        "func-names": ["off"],
+        "indent": ["error", 4, {
+        "SwitchCase": 1
+    }],
+        "jsx-a11y/label-has-for": [2, {
+        "required": {
+            "every": ["id"]
+        }
+    }],
+        "react/forbid-prop-types": 0,
+        "max-len": ["off"], //temporary ["error", { "code": 120 }]
+        "no-param-reassign": ["off"], //temporary
+        "object-curly-spacing": ["error", "never"],
+        "padded-blocks": ["off"],
+        "no-extra-boolean-cast": ["off"],
+        "space-before-function-paren": ["error", "never"],
+        "wrap-iife": ["error", "inside"],
+        "comma-dangle": ["error", "always-multiline"],
+        "no-use-before-define": ["error", { "functions": false, "classes": true }],
+        "function-paren-newline": ["error", { "minItems": 4 }],
+        "consistent-return": ["off"], //temporary
+        "no-multiple-empty-lines": ["error", {"max": 1}],
+        "global-require": ["off"], //temporary
+        "no-useless-escape": ["off"], //temporary
+        "no-prototype-builtins": ["off"],
+        "no-plusplus": ["off"],
+        "object-property-newline": ["error", {
+        "allowMultiplePropertiesPerLine": false
+    }],
+        "prefer-destructuring": ["off"] //temporary
+}
+}

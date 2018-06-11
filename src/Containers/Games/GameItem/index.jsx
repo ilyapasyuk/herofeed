@@ -12,17 +12,17 @@ export default class GameItem extends Component {
 
     render() {
         return (
-            <div className="game">
-                <div className="game__title">
+            <div className="Game">
+                <div className="Game__title">
                     {this.title}
                 </div>
-                <div className="game__realise">
+                <div className="Game__realise">
                     {this.date_relise}
                 </div>
-                <div className="game__platforms">
+                <div className="Game__platforms">
                     {this.platforms.map((platform) => (
                         <span
-                            className="game__platform"
+                            className="Game__platform"
                             key={platform}
                         >
                             {platform}

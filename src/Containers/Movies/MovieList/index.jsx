@@ -50,8 +50,8 @@ class MovieList extends Component {
 
     render() {
         return (
-            <div className="movies-list">
-                <div className="movies-list__filter">
+            <div className="Movies-list">
+                <div className="Movies-list__filter">
                     <Button
                         title="Movie"
                         className="Button Button_link"

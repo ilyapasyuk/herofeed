@@ -24,7 +24,7 @@ export default class GameList extends Component {
 
     render() {
         return (
-            <div className="games-list">
+            <div className="Games-list">
                 {this.state.items.map((item) => (
                     <div
                         className="col-sm-3"
