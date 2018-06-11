@@ -1,6 +1,6 @@
 @import "../styles/variables";
 
-.menu {
+.Menu {
   display: flex;
   align-items: stretch;
   background-color: $primary-color;
@@ -37,7 +37,6 @@
     opacity: .8;
     font-size: $base-size * 4;
     outline: none;
-
 
     &:hover {
       opacity: 1;

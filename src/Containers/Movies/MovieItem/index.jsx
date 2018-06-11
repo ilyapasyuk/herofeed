@@ -27,16 +27,16 @@ class MovieItem extends Component {
 
         return (
             <Link
-                className="movie-item"
+                className="Movie-item"
                 to={`movie/${id}`}
                 alt={title}
             >
-                <div className="movie-item__poster">
-                    <span className={`movie-item__type movie-item__type_${type}`}>
+                <div className="Movie-item__poster">
+                    <span className={`Movie-item__type Movie-item__type_${type}`}>
                         {type}
                     </span>
 
-                    <span className="movie-item__date-realise">
+                    <span className="Movie-item__date-realise">
                         {dateRealise}
                     </span>
 
@@ -45,7 +45,7 @@ class MovieItem extends Component {
                         alt={title}
                     />
                 </div>
-                <div className="movie-item__title">
+                <div className="Movie-item__title">
                     {title}
                 </div>
             </Link>
