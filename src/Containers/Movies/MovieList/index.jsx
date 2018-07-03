@@ -54,17 +54,17 @@ class MovieList extends Component {
                 <div className="Movies-list__filter">
                     <Button
                         title="Movie"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('movie')}
                     />
                     <Button
                         title="Show"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('serial')}
                     />
                     <Button
                         title="Animation"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('animation')}
                     />
                 </div>
