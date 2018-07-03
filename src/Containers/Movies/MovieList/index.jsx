@@ -1,8 +1,20 @@
 import React, {Component} from 'react';
+import injectSheet from 'react-jss';
 import MovieItem from '../MovieItem';
-import './style.scss';
 import MoviesService from '../movies.service';
 import Button from '../../../UI/Button';
+import styleVariables from '../../../UI/styles/variables';
+
+const styles = {
+    MoviesList: {
+        paddingTop: styleVariables.baseSize * 2,
+        paddingBottom: styleVariables.baseSize * 2,
+    },
+    MoviesFilter: {
+        padding: '0 20px',
+        marginBottom: styleVariables.baseSize * 2,
+    },
+};
 
 const Movies = new MoviesService();
 
@@ -49,22 +61,24 @@ class MovieList extends Component {
     }
 
     render() {
+        const classes = this.props.classes;
+
         return (
-            <div className="Movies-list">
-                <div className="Movies-list__filter">
+            <div className={classes.MoviesList}>
+                <div className={classes.MoviesFilter}>
                     <Button
                         title="Movie"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('movie')}
                     />
                     <Button
                         title="Show"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('serial')}
                     />
                     <Button
                         title="Animation"
-                        className="Button Button_link"
+                        link
                         callBackClick={() => this.filterByType('animation')}
                     />
                 </div>
@@ -81,4 +95,4 @@ class MovieList extends Component {
     }
 }
 
-export default MovieList;
+export default injectSheet(styles)(MovieList);
