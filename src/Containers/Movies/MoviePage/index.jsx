@@ -13,7 +13,7 @@ export default class MoviePage extends Component {
     }
 
     componentDidMount() {
-        Movies.getMovie(this.state.id)
+        MoviesService.getMovie(this.state.id)
             .then((response) => {
                 this.setState({
                     title: response.title_ru,
