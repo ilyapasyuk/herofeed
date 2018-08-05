@@ -16,8 +16,6 @@ const styles = {
     },
 };
 
-const Movies = new MoviesService();
-
 class MovieList extends Component {
     constructor() {
         super();
@@ -25,6 +23,8 @@ class MovieList extends Component {
             items: [],
         };
         this.filterByType = this.filterByType.bind(this);
+        this.handleLoadMore = this.handleLoadMore.bind(this);
+        this.setLastItemforPagination = this.setLastItemforPagination.bind(this);
     }
 
     componentDidMount() {
@@ -35,8 +35,11 @@ class MovieList extends Component {
             }],
         };
 
-        Movies.getList(defaultQuery)
+        MoviesService.getList(defaultQuery)
             .then((response) => {
+                const lastItem = response[response.length - 1];
+                this.setLastItemforPagination(lastItem.fields.date_realise);
+
                 this.setState({
                     items: response,
                 });
@@ -52,12 +55,47 @@ class MovieList extends Component {
             }],
         };
 
-        Movies.getList(query)
+        MoviesService.getList(query)
             .then((response) => {
+                const lastItem = response[response.length - 1];
+                this.setLastItemforPagination(lastItem.fields.date_realise);
+
                 this.setState({
                     items: response,
                 });
             });
+    }
+
+    handleLoadMore(date) {
+        const query = {
+            filterByFormula: `IS_BEFORE({date_realise}, DATETIME_PARSE('${date}'))`,
+            sort: [{
+                field: 'date_realise',
+                direction: 'desc',
+            }],
+        };
+
+        MoviesService.getList(query)
+            .then((response) => {
+
+                const date = [
+                    ...this.state.items,
+                    ...response,
+                ];
+
+                const lastItem = response[response.length - 1];
+                this.setLastItemforPagination(lastItem.fields.date_realise);
+
+                this.setState({
+                    items: date,
+                });
+            });
+    }
+
+    setLastItemforPagination(date) {
+        this.setState({
+            dateRealiseLastItem: date,
+        });
     }
 
     render() {
@@ -87,9 +125,16 @@ class MovieList extends Component {
                         className="col-sm-3"
                         key={item.id}
                     >
-                        <MovieItem data={item.fields} />
+                        <MovieItem data={item.fields}/>
                     </div>
                 ))}
+
+                <Button
+                    isPrimary
+                    isBlock
+                    callBackClick={() => this.handleLoadMore(this.state.dateRealiseLastItem)}
+                    title="Load more"
+                />
             </div>
         );
     }

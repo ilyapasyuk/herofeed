@@ -38,6 +38,18 @@ const styles = {
             color: 'gray',
         },
     },
+    isPrimary: {
+        background: styleVaribles.primaryColor,
+        color: styleVaribles.primaryLighter,
+
+        '&:hover': {
+            background: styleVaribles.primaryDark,
+        },
+    },
+    isBlock: {
+        width: '100%',
+        display: 'block',
+    },
 };
 
 const Button = ({
@@ -45,9 +57,11 @@ const Button = ({
     title,
     callBackClick,
     link,
+    isPrimary,
+    isBlock,
 }) => (
     <button
-        className={`${classes.Button} ${link && classes.link}`}
+        className={`${classes.Button} ${link && classes.link} ${isPrimary && classes.isPrimary} ${isBlock && classes.isBlock}`}
         onClick={callBackClick}
         type="button"
     >
@@ -59,10 +73,14 @@ Button.propTypes = {
     title: PropTypes.string.isRequired,
     callBackClick: PropTypes.func.isRequired,
     link: PropTypes.bool,
+    isPrimary: PropTypes.bool,
+    isBlock: PropTypes.bool,
 };
 
 Button.defaultProps = {
     link: false,
+    isPrimary: false,
+    isBlock: false,
 };
 
 export default injectSheet(styles)(Button);

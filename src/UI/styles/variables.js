@@ -3,7 +3,7 @@ const baseSize = 4;
 export default {
     baseColor: '#fafafa',
     primaryColor: '#07c25f',
-    primaryAark: '#069d4d',
+    primaryDark: '#069d4d',
     primaryDarker: '#047439',
     primaryLight: '#39ce7f',
     primaryLighter: '#cdf3df',
