@@ -20,7 +20,7 @@
     "prop-types": "15.6.2",
     "qs": "6.5.2",
     "react": "16.4.1",
-    "react-dom": "16.4.1",
+    "react-dom": "16.4.2",
     "react-jss": "8.6.1",
     "react-router-dom": "4.3.1"
   },
