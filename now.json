@@ -1,6 +1,7 @@
 {
   "name": "herofeed",
-  "scripts": {
-    "build": "npm run build"
-  }
+  "type": "static",
+  "files": [
+    "build"
+  ]
 }
