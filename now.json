@@ -1,7 +1,3 @@
 {
-  "name": "herofeed",
-  "type": "static",
-  "files": [
-    "build"
-  ]
+  "name": "herofeed"
 }
