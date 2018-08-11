@@ -1,4 +1,5 @@
 {
+  "name": "herofeed",
   "scripts": {
     "build": "npm run build"
   }
