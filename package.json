@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "description": "herofeed",
   "scripts": {
+    "deploy": "npm run build"
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "deploy": "npm run build",
-    "alias": "cd ./build && now alias"
   },
   "author": "Ilya Pasyuk <pasyuk.com@gmail.com>",
   "license": "MIT",
