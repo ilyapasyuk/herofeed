@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import styleVaribles from '../styles/variables';
+import React from 'react'
+import PropTypes from 'prop-types'
+import injectSheet from 'react-jss'
+import styleVaribles from '../styles/variables'
 
 const styles = {
     Button: {
@@ -50,24 +50,18 @@ const styles = {
         width: '100%',
         display: 'block',
     },
-};
+}
 
-const Button = ({
-    classes,
-    title,
-    callBackClick,
-    link,
-    isPrimary,
-    isBlock,
-}) => (
+const Button = ({ classes, title, callBackClick, link, isPrimary, isBlock }) => (
     <button
-        className={`${classes.Button} ${link && classes.link} ${isPrimary && classes.isPrimary} ${isBlock && classes.isBlock}`}
+        className={`${classes.Button} ${link && classes.link} ${isPrimary &&
+            classes.isPrimary} ${isBlock && classes.isBlock}`}
         onClick={callBackClick}
         type="button"
     >
         {title}
     </button>
-);
+)
 
 Button.propTypes = {
     title: PropTypes.string.isRequired,
@@ -75,12 +69,12 @@ Button.propTypes = {
     link: PropTypes.bool,
     isPrimary: PropTypes.bool,
     isBlock: PropTypes.bool,
-};
+}
 
 Button.defaultProps = {
     link: false,
     isPrimary: false,
     isBlock: false,
-};
+}
 
-export default injectSheet(styles)(Button);
+export default injectSheet(styles)(Button)
