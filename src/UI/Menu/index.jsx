@@ -1,7 +1,7 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import injectSheet from 'react-jss';
-import variables from '../styles/variables';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import injectSheet from 'react-jss'
+import variables from '../styles/variables'
 
 const styles = {
     Menu: {
@@ -52,38 +52,33 @@ const styles = {
         textTransform: 'uppercase',
         marginRight: variables.baseSize * 20,
     },
-};
+}
 
 const pages = [
     {
         state: '/movies',
         name: 'Кино',
         icon: 'local-Movies',
-    }, {
+    },
+    {
         state: '/games',
         name: 'Игры',
         icon: 'Games',
     },
-];
+]
 
-const Menu = ({classes}) => (
+const Menu = ({ classes }) => (
     <div className={classes.Menu}>
-        <div className={classes.brand}>
-            Herofeed
-        </div>
+        <div className={classes.brand}>Herofeed</div>
 
         <div className={classes.items}>
             {pages.map((page) => (
-                <Link
-                    to={page.state}
-                    className={classes.item}
-                    key={page.state}
-                >
+                <Link to={page.state} className={classes.item} key={page.state}>
                     {page.name}
                 </Link>
             ))}
         </div>
     </div>
-);
+)
 
-export default injectSheet(styles)(Menu);
+export default injectSheet(styles)(Menu)

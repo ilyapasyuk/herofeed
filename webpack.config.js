@@ -1,11 +1,11 @@
-const path = require('path');
-const HtmlPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const path = require('path')
+const HtmlPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 const ENV = {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
-};
+}
 
 const config = {
     entry: {
@@ -46,72 +46,77 @@ const config = {
         }),
     ],
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: 'babel-loader',
-        }, {
-            test: /\.html$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'html-loader',
-                options: {
-                    attrs: false, // Don't require images
-                    minimize: true,
-                    removeComments: true,
-                    collapseWhitespace: true,
-                    conservativeCollapse: true,
-                },
-            }],
-        }],
-    },
-    resolve: {
-        extensions: [
-            '.js',
-            '.jsx',
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader',
+            },
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            attrs: false, // Don't require images
+                            minimize: true,
+                            removeComments: true,
+                            collapseWhitespace: true,
+                            conservativeCollapse: true,
+                        },
+                    },
+                ],
+            },
         ],
     },
-};
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+}
 
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
-    const CleanPlugin = require('clean-webpack-plugin');
-    const ExtractTextPlugin = require('extract-text-webpack-plugin');
-    const autoprefixer = require('autoprefixer');
+    const CleanPlugin = require('clean-webpack-plugin')
+    const ExtractTextPlugin = require('extract-text-webpack-plugin')
+    const autoprefixer = require('autoprefixer')
 
-    config.output.filename = '[name]-[chunkhash].js';
+    config.output.filename = '[name]-[chunkhash].js'
 
-    config.plugins.push(new ExtractTextPlugin('app-[chunkhash].css'));
+    config.plugins.push(new ExtractTextPlugin('app-[chunkhash].css'))
     config.module.rules.push({
         test: /\.scss/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract([{
-            loader: 'css-loader',
-            options: {
-                minimize: true,
+        use: ExtractTextPlugin.extract([
+            {
+                loader: 'css-loader',
+                options: {
+                    minimize: true,
+                },
             },
-        }, {
-            loader: 'postcss-loader',
-            options: {
-                plugins: [
-                    autoprefixer({
-                        browsers: ['last 2 versions'],
-                    }),
-                ],
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: [
+                        autoprefixer({
+                            browsers: ['last 2 versions'],
+                        }),
+                    ],
+                },
             },
-        }, {
-            loader: 'sass-loader',
-        }]),
-    });
+            {
+                loader: 'sass-loader',
+            },
+        ]),
+    })
 
-    config.optimization.minimize = true;
-    config.mode = ENV.PRODUCTION;
+    config.optimization.minimize = true
+    config.mode = ENV.PRODUCTION
 
-    config.plugins.push(new CleanPlugin([
-        'dist/*.*',
-        'dist/icons*',
-    ], {
-        exclude: ['CNAME'],
-    }));
+    config.plugins.push(
+        new CleanPlugin(['dist/*.*', 'dist/icons*'], {
+            exclude: ['CNAME'],
+        }),
+    )
 }
 
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
@@ -119,16 +124,16 @@ if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
         test: /\.scss/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-    });
+    })
 
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.plugins.push(new webpack.HotModuleReplacementPlugin())
 
     config.devServer = {
         contentBase: path.resolve(__dirname, 'dist'),
         open: true,
         hot: true,
-    };
-    config.mode = ENV.DEVELOPMENT;
+    }
+    config.mode = ENV.DEVELOPMENT
 }
 
-module.exports = config;
+module.exports = config

@@ -17,10 +17,11 @@
     "babel-preset-stage-2": "6.24.1",
     "material-icons": "0.2.3",
     "moment": "2.22.2",
+    "prettier": "1.15.2",
     "prop-types": "15.6.2",
     "qs": "6.5.2",
-    "react": "16.6.1",
-    "react-dom": "16.6.0",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
     "react-jss": "8.6.1",
     "react-router-dom": "4.3.1"
   },
@@ -54,5 +55,7 @@
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.9"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ilyapasyuk/herofeed.git"
 }
