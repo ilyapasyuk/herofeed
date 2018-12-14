@@ -16,7 +16,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "material-icons": "0.2.3",
-    "moment": "2.22.2",
+    "moment": "2.23.0",
     "prettier": "1.15.2",
     "prop-types": "15.6.2",
     "qs": "6.5.2",
