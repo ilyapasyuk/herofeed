@@ -2,6 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import injectSheet from 'react-jss'
 import variables from '../styles/variables'
+import Onboarding from '../Wizard'
+
+const rule = [
+    {
+        position: 1,
+        elementId: 'Logo',
+        title: 'Name your campaign',
+        description: 'Choose a clear simple name to identify your campaign easily.',
+    },
+    {
+        position: 5,
+        elementId: 'Menu',
+        title: 'Paste Target URL',
+        description:
+            'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo',
+    },
+]
 
 const styles = {
     Menu: {
@@ -69,15 +86,18 @@ const pages = [
 
 const Menu = ({ classes }) => (
     <div className={classes.Menu}>
-        <div className={classes.brand}>Herofeed</div>
+        <div className={classes.brand} id="Logo">
+            Herofeed
+        </div>
 
-        <div className={classes.items}>
+        <div className={classes.items} id="Menu">
             {pages.map((page) => (
                 <Link to={page.state} className={classes.item} key={page.state}>
                     {page.name}
                 </Link>
             ))}
         </div>
+        <Onboarding isShow rule={rule} nextButtonTitle="Сюда" prevButtonTitle="Туда" />
     </div>
 )
 

@@ -23,6 +23,7 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-jss": "8.6.1",
+    "react-onboarding": "1.0.0",
     "react-router-dom": "4.3.1"
   },
   "devDependencies": {
