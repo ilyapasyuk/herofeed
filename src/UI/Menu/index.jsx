@@ -2,23 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import injectSheet from 'react-jss'
 import variables from '../styles/variables'
-import Onboarding from '../Wizard'
-
-const rule = [
-    {
-        position: 1,
-        elementId: 'Logo',
-        title: 'Name your campaign',
-        description: 'Choose a clear simple name to identify your campaign easily.',
-    },
-    {
-        position: 5,
-        elementId: 'Menu',
-        title: 'Paste Target URL',
-        description:
-            'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo',
-    },
-]
 
 const styles = {
     Menu: {
@@ -97,7 +80,6 @@ const Menu = ({ classes }) => (
                 </Link>
             ))}
         </div>
-        <Onboarding isShow rule={rule} nextButtonTitle="Сюда" prevButtonTitle="Туда" />
     </div>
 )
 

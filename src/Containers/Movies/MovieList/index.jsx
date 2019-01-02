@@ -14,6 +14,13 @@ const styles = {
         padding: '0 20px',
         marginBottom: styleVariables.baseSize * 2,
     },
+    MoviesFilterContainer: {
+        display: 'inline-block',
+    },
+    LoadMore: {
+        display: 'block',
+        textAlign: 'center',
+    },
 }
 
 class MovieList extends Component {
@@ -103,13 +110,26 @@ class MovieList extends Component {
         return (
             <div className={classes.MoviesList}>
                 <div className={classes.MoviesFilter}>
-                    <Button title="Movie" link callBackClick={() => this.filterByType('movie')} />
-                    <Button title="Show" link callBackClick={() => this.filterByType('serial')} />
-                    <Button
-                        title="Animation"
-                        link
-                        callBackClick={() => this.filterByType('animation')}
-                    />
+                    <div id="MovieFilter" className={classes.MoviesFilterContainer}>
+                        <Button
+                            elementId="movies-movie-button"
+                            title="Movie"
+                            link
+                            callBackClick={() => this.filterByType('movie')}
+                        />
+                        <Button
+                            elementId="movies-show-button"
+                            title="Show"
+                            link
+                            callBackClick={() => this.filterByType('serial')}
+                        />
+                        <Button
+                            elementId="movies-animation-button"
+                            title="Animation"
+                            link
+                            callBackClick={() => this.filterByType('animation')}
+                        />
+                    </div>
                 </div>
                 {this.state.items.map((item) => (
                     <div className="col-sm-3" key={item.id}>
@@ -117,12 +137,14 @@ class MovieList extends Component {
                     </div>
                 ))}
 
-                <Button
-                    isPrimary
-                    isBlock
-                    callBackClick={() => this.handleLoadMore(this.state.dateRealiseLastItem)}
-                    title="Load more"
-                />
+                <div className={classes.LoadMore}>
+                    <Button
+                        elementId="LoadMore"
+                        isPrimary
+                        callBackClick={() => this.handleLoadMore(this.state.dateRealiseLastItem)}
+                        title="Load more"
+                    />
+                </div>
             </div>
         )
     }

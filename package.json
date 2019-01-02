@@ -1,13 +1,10 @@
 {
   "name": "herofeed",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "herofeed",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "deploy": "npm run build && gh-pages -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "./node_modules/.bin/esdoc"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "author": "Ilya Pasyuk <pasyuk.com@gmail.com>",
   "license": "MIT",
@@ -23,7 +20,7 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-jss": "8.6.1",
-    "react-onboarding": "1.0.0",
+    "react-onboarding": "1.0.4",
     "react-router-dom": "4.3.1"
   },
   "devDependencies": {
