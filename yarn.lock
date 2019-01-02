@@ -6714,10 +6714,10 @@ react-jss@8.6.1:
     prop-types "^15.6.0"
     theming "^1.3.0"
 
-react-onboarding@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-onboarding/-/react-onboarding-1.0.4.tgz#2ba32311c4188bece7ec8846b6d40e8e7d736d02"
-  integrity sha512-XDcc1a7RJs6zuHL7e91LREz1Ge+Aq+8BU3ry+Llg2tk2PLwytX5E6ZdYwz82Ff+n8gLB6JoybkpjQKM+X3T9Jw==
+react-onboarding@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-onboarding/-/react-onboarding-1.0.7.tgz#030c3856694795a18d5888483e6bbac12f923b52"
+  integrity sha512-cl58d965Tp3hmm5LBCMSSZ9kVoZtqUf4VbZvn0ts0muzym2+NNGCVFxdA7VPuV4yjgIeqkjtD782fnq3abZ0JQ==
   dependencies:
     prop-types "^15.6.0"
     react "^16.2.0"
