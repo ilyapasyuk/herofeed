@@ -25,7 +25,7 @@ const rule = [
 function App() {
     return (
         <div>
-            <Wizard isShow rule={rule} />
+            <Wizard rule={rule} />
             <Menu />
             <Main />
         </div>
