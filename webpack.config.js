@@ -76,7 +76,6 @@ const config = {
 }
 
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
-    const CleanPlugin = require('clean-webpack-plugin')
     const ExtractTextPlugin = require('extract-text-webpack-plugin')
     const autoprefixer = require('autoprefixer')
 
@@ -111,12 +110,6 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
 
     config.optimization.minimize = true
     config.mode = ENV.PRODUCTION
-
-    config.plugins.push(
-        new CleanPlugin(['dist/*.*', 'dist/icons*'], {
-            exclude: ['CNAME'],
-        }),
-    )
 }
 
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
