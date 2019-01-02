@@ -18,7 +18,7 @@
     "prop-types": "15.6.2",
     "qs": "6.6.0",
     "react": "16.6.3",
-    "react-dom": "16.6.3",
+    "react-dom": "16.7.0",
     "react-jss": "8.6.1",
     "react-onboarding": "1.0.4",
     "react-router-dom": "4.3.1"
