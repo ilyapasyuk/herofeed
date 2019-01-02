@@ -52,8 +52,9 @@ const styles = {
     },
 }
 
-const Button = ({ classes, title, callBackClick, link, isPrimary, isBlock }) => (
+const Button = ({ classes, title, callBackClick, link, isPrimary, isBlock, elementId }) => (
     <button
+        id={elementId}
         className={`${classes.Button} ${link && classes.link} ${isPrimary &&
             classes.isPrimary} ${isBlock && classes.isBlock}`}
         onClick={callBackClick}
@@ -69,6 +70,7 @@ Button.propTypes = {
     link: PropTypes.bool,
     isPrimary: PropTypes.bool,
     isBlock: PropTypes.bool,
+    elementId: PropTypes.string.isRequired,
 }
 
 Button.defaultProps = {

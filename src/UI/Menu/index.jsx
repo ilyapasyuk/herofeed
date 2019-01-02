@@ -69,9 +69,11 @@ const pages = [
 
 const Menu = ({ classes }) => (
     <div className={classes.Menu}>
-        <div className={classes.brand}>Herofeed</div>
+        <div className={classes.brand} id="Logo">
+            Herofeed
+        </div>
 
-        <div className={classes.items}>
+        <div className={classes.items} id="Menu">
             {pages.map((page) => (
                 <Link to={page.state} className={classes.item} key={page.state}>
                     {page.name}
