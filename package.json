@@ -14,7 +14,7 @@
     "react-onboarding": "1.0.8"
   },
   "devDependencies": {
-    "autoprefixer": "9.4.3",
+    "autoprefixer": "9.4.4",
     "babel-core": "6.26.3",
     "babel-eslint": "10.0.1",
     "babel-loader": "7.1.5",
