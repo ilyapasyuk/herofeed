@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Suspense } from 'react'
+import { HashRouter } from 'react-router-dom'
 import Wizard from 'react-onboarding'
 import './style.scss'
-import Menu from '../../UI/Menu'
 import Main from '../../UI/Main'
 
 const rule = [
@@ -25,9 +25,12 @@ const rule = [
 function App() {
     return (
         <div>
-            <Wizard rule={rule} />
-            <Menu />
-            <Main />
+            {/*<Wizard rule={rule} />*/}
+            <Suspense fallback={<div>Loading...</div>}>
+                <HashRouter>
+                    <Main />
+                </HashRouter>
+            </Suspense>
         </div>
     )
 }
