@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import './style.scss'
 
 export default class GameItem extends Component {
     constructor(props) {
         super(props)
-        this.type = props.data.type
         this.title = props.data.title_en
         this.date_relise = props.data.date_relise
         this.platforms = props.data.platforms || null

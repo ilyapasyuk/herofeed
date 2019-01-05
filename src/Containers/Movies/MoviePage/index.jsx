@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './style.scss'
 import MoviesService from '../movies.service'
 
 const Movies = new MoviesService()

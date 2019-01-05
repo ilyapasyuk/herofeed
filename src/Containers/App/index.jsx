@@ -25,7 +25,7 @@ const rule = [
 function App() {
     return (
         <div>
-            {/*<Wizard rule={rule} />*/}
+            <Wizard rule={rule} />
             <Suspense fallback={<div>Loading...</div>}>
                 <HashRouter>
                     <Main />

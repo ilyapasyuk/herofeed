@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import GameItem from '../GameItem'
-import './style.scss'
 import GamesService from '../games.service'
 
 const Games = new GamesService()

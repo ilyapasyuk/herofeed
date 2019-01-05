@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import './style.scss'
 import Moment from 'moment'
 
 class MovieItem extends Component {

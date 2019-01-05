@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route, HashRouter } from 'react-router-dom'
-// import MovieList from '../../Containers/Movies/MovieList'
 const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
 import MoviePage from '../../Containers/Movies/MoviePage'
 import GameList from '../../Containers/Games/GameList'
