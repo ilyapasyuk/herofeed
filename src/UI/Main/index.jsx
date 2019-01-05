@@ -1,10 +1,11 @@
 import React from 'react'
-import { Switch, Route, HashRouter } from 'react-router-dom'
-const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
-import MoviePage from '../../Containers/Movies/MoviePage'
-import GameList from '../../Containers/Games/GameList'
-import './style.scss'
+import { Switch, Route } from 'react-router-dom'
 import Menu from '../Menu'
+
+const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
+const MoviePage = React.lazy(() => import('../../Containers/Movies/MoviePage'))
+const GameList = React.lazy(() => import('../../Containers/Games/GameList'))
+import './style.scss'
 
 const Main = () => (
     <main className="container">
