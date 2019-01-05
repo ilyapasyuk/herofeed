@@ -1,12 +1,15 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import MovieList from '../../Containers/Movies/MovieList'
-import MoviePage from '../../Containers/Movies/MoviePage'
-import GameList from '../../Containers/Games/GameList'
+import Menu from '../Menu'
+
+const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
+const MoviePage = React.lazy(() => import('../../Containers/Movies/MoviePage'))
+const GameList = React.lazy(() => import('../../Containers/Games/GameList'))
 import './style.scss'
 
 const Main = () => (
     <main className="container">
+        <Menu />
         <Switch>
             <Route exact path="/" component={MovieList} />
             <Route exact path="/movies" component={MovieList} />
