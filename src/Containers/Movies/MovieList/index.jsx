@@ -4,6 +4,7 @@ import MovieItem from '../MovieItem'
 import MoviesService from '../movies.service'
 import Button from '../../../UI/Button'
 import styleVariables from '../../../UI/styles/variables'
+import Wizard from 'react-onboarding'
 
 const styles = {
     MoviesList: {
@@ -22,6 +23,24 @@ const styles = {
         textAlign: 'center',
     },
 }
+
+const rule = [
+    {
+        elementId: 'Menu',
+        title: 'Main menu',
+        description: 'Basic navigation',
+    },
+    {
+        elementId: 'MovieFilter',
+        title: 'Filter',
+        description: 'Controls for sort types',
+    },
+    {
+        elementId: 'LoadMore',
+        title: 'Load more',
+        description: 'Controls for load more movies',
+    },
+]
 
 class MovieList extends Component {
     constructor() {
@@ -145,6 +164,7 @@ class MovieList extends Component {
                         title="Load more"
                     />
                 </div>
+                <Wizard rule={rule} />
             </div>
         )
     }
