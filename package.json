@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "moment": "2.23.0",
-    "react-onboarding": "1.1.0"
+    "react-onboarding": "1.1.1"
   },
   "devDependencies": {
     "autoprefixer": "9.4.4",
