@@ -1,0 +1,29 @@
+@import "../styles/variables";
+@import "../../Containers/Movies/MovieItem/style";
+@import "../../Containers/Movies/MoviePage/style";
+@import "../../Containers/Hero/HeroPage/style";
+@import "../../Containers/Games/GameList/style";
+@import "../../Containers/Games/GameItem/style";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: $base-size*4;
+  background-color: $base-color;
+  margin: 0;
+  padding: 0;
+}
+
+menu, ul {
+  margin: 0;
+  padding: 0;
+}
