@@ -6,6 +6,7 @@ const SOURCE =
 class GamesService {
     getList() {
         return axios.get(SOURCE).then((response) => {
+            console.log('response', response)
             return Object.values(response.data.records)
         })
     }

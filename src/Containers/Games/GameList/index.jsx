@@ -31,4 +31,4 @@ class GameList extends Component {
     }
 }
 
-export default new GameList()
+export default GameList
