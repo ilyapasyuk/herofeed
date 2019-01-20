@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import MovieItem from '../MovieItem'
-import MoviesService from '../../../Services/Movies'
+import MoviesService from 'Services/Games'
 import Button from '../../../UI/Button'
 import styleVariables from '../../../UI/styles/variables'
 import Wizard from 'react-onboarding'

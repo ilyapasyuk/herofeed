@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import GameItem from '../GameItem'
-import GamesService from '../../../Services/Games'
+import GamesService from 'Services/Games'
 
 class GameList extends Component {
     constructor() {

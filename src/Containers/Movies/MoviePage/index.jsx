@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MoviesService from '../../../Services/Movies'
+import MoviesService from 'Services/Games'
 
 export default class MoviePage extends Component {
     constructor(props) {
