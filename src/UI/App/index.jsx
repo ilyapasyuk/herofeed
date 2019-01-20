@@ -1,17 +1,27 @@
 import React, { Suspense } from 'react'
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, Switch, Route } from 'react-router-dom'
+import Menu from '../Menu'
 import './style.scss'
-import Main from '../../UI/Main'
+
+const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
+const MoviePage = React.lazy(() => import('../../Containers/Movies/MoviePage'))
+const GameList = React.lazy(() => import('../../Containers/Games/GameList'))
 
 function App() {
     return (
-        <div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <HashRouter>
-                    <Main />
-                </HashRouter>
-            </Suspense>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <HashRouter>
+                <main className="container">
+                    <Menu />
+                    <Switch>
+                        <Route exact path="/" component={MovieList} />
+                        <Route exact path="/movies" component={MovieList} />
+                        <Route path="/games" component={GameList} />
+                        <Route path="/movie/:id" component={MoviePage} />
+                    </Switch>
+                </main>
+            </HashRouter>
+        </Suspense>
     )
 }
 

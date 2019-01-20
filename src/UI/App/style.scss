@@ -27,3 +27,10 @@ menu, ul {
   margin: 0;
   padding: 0;
 }
+
+.container {
+  @media (min-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
