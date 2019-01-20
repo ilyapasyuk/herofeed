@@ -29,11 +29,9 @@ const config = {
                 },
             },
         },
+        minimizer: [],
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        }),
         new HtmlPlugin({
             template: './src/index.ejs',
             minify: {
@@ -60,7 +58,6 @@ const config = {
                     {
                         loader: 'html-loader',
                         options: {
-                            attrs: false, // Don't require images
                             minimize: true,
                             removeComments: true,
                             collapseWhitespace: true,
@@ -77,37 +74,49 @@ const config = {
 }
 
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
-    const ExtractTextPlugin = require('extract-text-webpack-plugin')
-    const autoprefixer = require('autoprefixer')
+    const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+    const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+    const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+    const Autoprefixer = require('autoprefixer')
 
     config.output.filename = '[name]-[chunkhash].js'
 
-    config.plugins.push(new ExtractTextPlugin('app-[chunkhash].css'))
+    config.plugins.push(
+        new MiniCssExtractPlugin({
+            filename: 'app-[chunkhash].css',
+            chunkFilename: '[id].css',
+        }),
+    )
     config.module.rules.push({
-        test: /\.scss/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract([
+        test: /\.(scss|css)$/,
+        use: [
+            MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
                 options: {
-                    minimize: true,
+                    minimize: {
+                        safe: true,
+                    },
                 },
             },
             {
                 loader: 'postcss-loader',
                 options: {
-                    plugins: [
-                        autoprefixer({
-                            browsers: ['last 2 versions'],
-                        }),
-                    ],
+                    autoprefixer: {
+                        browsers: ['last 2 versions'],
+                    },
+                    plugins: () => [Autoprefixer],
                 },
             },
             {
                 loader: 'sass-loader',
+                options: {},
             },
-        ]),
+        ],
     })
+
+    config.optimization.minimizer.push(new UglifyJsPlugin())
+    config.optimization.minimizer.push(new OptimizeCssAssetsPlugin({}))
 
     config.optimization.minimize = true
     config.mode = ENV.PRODUCTION

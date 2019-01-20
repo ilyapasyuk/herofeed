@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import MoviesService from '../movies.service'
 
-const Movies = new MoviesService()
-
 export default class MoviePage extends Component {
     constructor(props) {
         super(props)
