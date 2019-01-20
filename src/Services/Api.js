@@ -28,4 +28,4 @@ class Api {
     }
 }
 
-export default Api
+export default new Api()

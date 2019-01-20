@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import GameItem from '../GameItem'
-import GamesService from '../games.service'
+import GamesService from '../../../Services/Games'
 
-const Games = new GamesService()
-
-export default class GameList extends Component {
+class GameList extends Component {
     constructor() {
         super()
         this.state = {
@@ -13,7 +11,7 @@ export default class GameList extends Component {
     }
 
     componentDidMount() {
-        Games.getList().then((response) => {
+        GamesService.getList().then((response) => {
             this.setState({
                 items: response,
             })
@@ -32,3 +30,5 @@ export default class GameList extends Component {
         )
     }
 }
+
+export default new GameList()
