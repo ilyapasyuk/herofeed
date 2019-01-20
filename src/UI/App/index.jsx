@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import Menu from '../Menu'
+import SplashScreen from '../SplashScreen'
 import './style.scss'
 
 const MovieList = React.lazy(() => import('../../Containers/Movies/MovieList'))
@@ -9,7 +10,7 @@ const GameList = React.lazy(() => import('../../Containers/Games/GameList'))
 
 function App() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SplashScreen />}>
             <HashRouter>
                 <main className="container">
                     <Menu />
