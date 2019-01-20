@@ -70,6 +70,9 @@ const config = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: {
+            Services: path.resolve(__dirname, 'src/Services/'),
+        },
     },
 }
 
