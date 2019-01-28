@@ -20,7 +20,7 @@ class GameList extends Component {
 
     render() {
         return (
-            <div className="Games-list">
+            <div className="Games-list row">
                 {this.state.items.map((item) => (
                     <div className="col-sm-3" key={item.id}>
                         <GameItem data={item.fields} />
