@@ -1,82 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import injectSheet from 'react-jss'
-import styleVaribles from '../styles/variables'
+import ClassNames from 'classnames'
 
-const styles = {
-    Button: {
-        display: 'inline-block',
-        fontWeight: '300',
-        cursor: 'pointer',
-        height: styleVaribles.baseSize * 8,
-        fontSize: '14px',
-        padding: '0 16px',
-        textAlign: 'center',
-        whiteSpace: 'nowrap',
-        verticalAlign: 'middle',
-        userSelect: 'none',
-        border: '0',
-        borderRadius: styleVaribles.baseSize,
-        transition: 'background-color 0.1s linear 0s',
-        outline: 'none',
-        background: 'transparent',
-        color: 'black',
+import './styles.scss'
 
-        '& + &': {
-            margin: {
-                left: styleVaribles.baseSize * 4,
-            },
-        },
-    },
-    link: {
-        padding: {
-            left: 0,
-            right: 0,
-        },
+const Button = ({ title, callBackClick, isPrimary, isLink, isBlock, elementId }) => {
+    const style = ClassNames('Button', {
+        Button_primary: isPrimary,
+        Button_link: isLink,
+        Button_block: isBlock,
+    })
 
-        '&:hover': {
-            color: 'gray',
-        },
-    },
-    isPrimary: {
-        background: styleVaribles.primaryColor,
-        color: styleVaribles.primaryLighter,
-
-        '&:hover': {
-            background: styleVaribles.primaryDark,
-        },
-    },
-    isBlock: {
-        width: '100%',
-        display: 'block',
-    },
+    return (
+        <button id={elementId} className={style} onClick={callBackClick} type="button">
+            {title}
+        </button>
+    )
 }
-
-const Button = ({ classes, title, callBackClick, link, isPrimary, isBlock, elementId }) => (
-    <button
-        id={elementId}
-        className={`${classes.Button} ${link && classes.link} ${isPrimary &&
-            classes.isPrimary} ${isBlock && classes.isBlock}`}
-        onClick={callBackClick}
-        type="button"
-    >
-        {title}
-    </button>
-)
 
 Button.propTypes = {
     title: PropTypes.string.isRequired,
     callBackClick: PropTypes.func.isRequired,
-    link: PropTypes.bool,
+    elementId: PropTypes.string.isRequired,
+
+    isLink: PropTypes.bool,
     isPrimary: PropTypes.bool,
     isBlock: PropTypes.bool,
-    elementId: PropTypes.string.isRequired,
 }
 
 Button.defaultProps = {
-    link: false,
     isPrimary: false,
+    isLink: false,
     isBlock: false,
 }
 
-export default injectSheet(styles)(Button)
+export default Button

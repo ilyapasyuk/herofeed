@@ -1,78 +1,58 @@
-import React, { Component } from 'react'
-import injectSheet from 'react-jss'
-import MovieItem from './Item'
+import React, { PureComponent } from 'react'
+import { NavLink } from 'react-router-dom'
 import MoviesService from 'Services/Movies'
-import Button from '../../../Components/Button'
-import styleVariables from '../../../Components/styles/variables'
 
-const styles = {
-    MoviesList: {
-        paddingTop: styleVariables.baseSize * 2,
-        paddingBottom: styleVariables.baseSize * 2,
-    },
-    MoviesFilter: {
-        padding: '0 20px',
-        marginBottom: styleVariables.baseSize * 2,
-    },
-    MoviesFilterContainer: {
-        display: 'inline-block',
-    },
-    LoadMore: {
-        display: 'block',
-        textAlign: 'center',
-    },
-}
+import MovieItem from './Item'
+import Button from 'Components/Button'
 
-class MovieList extends Component {
-    constructor() {
-        super()
-        this.state = {
-            items: [],
-        }
-        this.filterByType = this.filterByType.bind(this)
-        this.handleLoadMore = this.handleLoadMore.bind(this)
-        this.setLastItemforPagination = this.setLastItemforPagination.bind(this)
+import MOVIE_FILTER from 'Constants/moviesFilter'
+import MOVIE_TYPE from 'Constants/movieTypes'
+
+import './styles.scss'
+
+class MovieList extends PureComponent {
+    state = {
+        items: [],
+        sortBy: this.props.match.params.type || undefined,
     }
 
     componentDidMount() {
-        const defaultQuery = {
-            sort: [
-                {
-                    field: 'date_realise',
-                    direction: 'desc',
-                },
-            ],
-        }
-
-        MoviesService.getList(defaultQuery).then((response) => {
-            const lastItem = response[response.length - 1]
-            this.setLastItemforPagination(lastItem.fields.date_realise)
-
-            this.setState({
-                items: response,
-            })
-        })
+        this.filterByType(this.state.sortBy)
     }
 
     filterByType(type) {
-        const query = {
-            filterByFormula: `{type} = "${type}"`,
-            sort: [
-                {
-                    field: 'date_realise',
-                    direction: 'desc',
-                },
-            ],
-        }
+        this.setState(
+            {
+                sortBy: type,
+            },
+            () => {
+                const query = {
+                    sort: [
+                        {
+                            field: 'date_realise',
+                            direction: 'desc',
+                        },
+                    ],
+                }
 
-        MoviesService.getList(query).then((response) => {
-            const lastItem = response[response.length - 1]
-            this.setLastItemforPagination(lastItem.fields.date_realise)
+                if (this.state.sortBy) {
+                    query.filterByFormula = `{type} = "${this.state.sortBy}"`
+                }
 
-            this.setState({
-                items: response,
-            })
-        })
+                if (this.state.sortBy === MOVIE_TYPE.ALL) {
+                    delete query.filterByFormula
+                }
+
+                MoviesService.getList(query).then((response) => {
+                    const lastItem = response[response.length - 1]
+                    this.dateRealiseLastItem = lastItem.fields.date_realise
+
+                    this.setState({
+                        items: response,
+                    })
+                })
+            },
+        )
     }
 
     handleLoadMore(date) {
@@ -86,11 +66,13 @@ class MovieList extends Component {
             ],
         }
 
+        console.log(query)
+
         MoviesService.getList(query).then((response) => {
             const date = [...this.state.items, ...response]
 
             const lastItem = response[response.length - 1]
-            this.setLastItemforPagination(lastItem.fields.date_realise)
+            this.dateRealiseLastItem = lastItem.fields.date_realise
 
             this.setState({
                 items: date,
@@ -98,50 +80,42 @@ class MovieList extends Component {
         })
     }
 
-    setLastItemforPagination(date) {
-        this.setState({
-            dateRealiseLastItem: date,
-        })
-    }
-
     render() {
-        const classes = this.props.classes
-
+        console.log(this.state)
         return (
-            <div className={classes.MoviesList}>
-                <div className={classes.MoviesFilter}>
-                    <div id="MovieFilter" className={classes.MoviesFilterContainer}>
-                        <Button
-                            elementId="movies-movie-button"
-                            title="Movie"
-                            link
-                            callBackClick={() => this.filterByType('movie')}
-                        />
-                        <Button
-                            elementId="movies-show-button"
-                            title="Show"
-                            link
-                            callBackClick={() => this.filterByType('serial')}
-                        />
-                        <Button
-                            elementId="movies-animation-button"
-                            title="Animation"
-                            link
-                            callBackClick={() => this.filterByType('animation')}
-                        />
-                    </div>
+            <div className="MoviesList">
+                <div className="MoviesList__filter">
+                    {MOVIE_FILTER.map((item) => {
+                        return (
+                            <NavLink
+                                activeClassName="MoviesList__filter_active"
+                                to={{
+                                    pathname: `/movies/list/${item.type}`,
+                                }}
+                            >
+                                <Button
+                                    elementId={`movies-${item.type}-button`}
+                                    title={item.title}
+                                    callBackClick={() => this.filterByType(item.type)}
+                                />
+                            </NavLink>
+                        )
+                    })}
                 </div>
-                {this.state.items.map((item) => (
-                    <div className="col-sm-3" key={item.id}>
-                        <MovieItem data={item.fields} />
-                    </div>
-                ))}
 
-                <div className={classes.LoadMore}>
+                <div className="row">
+                    {this.state.items.map((item) => (
+                        <div className="col-sm-3" key={item.id}>
+                            <MovieItem data={item.fields} />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="MovieList__more">
                     <Button
                         elementId="LoadMore"
                         isPrimary
-                        callBackClick={() => this.handleLoadMore(this.state.dateRealiseLastItem)}
+                        callBackClick={() => this.handleLoadMore(this.dateRealiseLastItem)}
                         title="Load more"
                     />
                 </div>
@@ -150,4 +124,4 @@ class MovieList extends Component {
     }
 }
 
-export default injectSheet(styles)(MovieList)
+export default MovieList
