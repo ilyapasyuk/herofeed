@@ -6224,10 +6224,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pose@4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.5.tgz#056309b62e32ce0190f90ef35d7ade1b4c463d85"
-  integrity sha512-6eNI7RZ08ji4uclLU7oz7WZCW6cdG2d4mdJ1VzKyAei7tujoXjul9UjNSpiLYyn/VnIJaMX5R48gH2mzBGPjiA==
+react-pose@4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.6.tgz#265a9814eea48898dd653a92e998fc86a1366fb4"
+  integrity sha512-4i72lsjpvJT6nwbTrMtbZiZoJ65REIVtDm1u1ruEriJcBOoNNQSTkFUAdjBG6pOaATkk9OWgziBuz4PU1GI0bA==
   dependencies:
     "@emotion/is-prop-valid" "^0.7.3"
     hey-listen "^1.0.5"
