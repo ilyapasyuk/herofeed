@@ -19,7 +19,7 @@ class MovieItem extends Component {
         const { type, title, cover, id, dateRealise } = this.state
 
         return (
-            <Link className="Movie-item" to={`movie/${id}`} alt={title}>
+            <Link className="Movie-item" to={`/movies/${id}`} alt={title}>
                 <div className="Movie-item__poster">
                     <span className={`Movie-item__type Movie-item__type_${type}`}>{type}</span>
 

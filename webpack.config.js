@@ -66,12 +66,26 @@ const config = {
                     },
                 ],
             },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                            outputPath: './assets/',
+                        },
+                    },
+                ],
+            },
         ],
     },
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
             Services: path.resolve(__dirname, 'src/Services/'),
+            Constants: path.resolve(__dirname, 'src/Constants/'),
+            Components: path.resolve(__dirname, 'src/Components/'),
         },
     },
 }

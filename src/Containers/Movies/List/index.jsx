@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import injectSheet from 'react-jss'
-import MovieItem from '../MovieItem'
+import MovieItem from './Item'
 import MoviesService from 'Services/Movies'
-import Button from '../../../UI/Button'
-import styleVariables from '../../../UI/styles/variables'
-import Wizard from 'react-onboarding'
+import Button from '../../../Components/Button'
+import styleVariables from '../../../Components/styles/variables'
 
 const styles = {
     MoviesList: {
@@ -23,24 +22,6 @@ const styles = {
         textAlign: 'center',
     },
 }
-
-const rule = [
-    {
-        elementId: 'Menu',
-        title: 'Main menu',
-        description: 'Basic navigation',
-    },
-    {
-        elementId: 'MovieFilter',
-        title: 'Filter',
-        description: 'Controls for sort types',
-    },
-    {
-        elementId: 'LoadMore',
-        title: 'Load more',
-        description: 'Controls for load more movies',
-    },
-]
 
 class MovieList extends Component {
     constructor() {
@@ -164,7 +145,6 @@ class MovieList extends Component {
                         title="Load more"
                     />
                 </div>
-                <Wizard rule={rule} />
             </div>
         )
     }
