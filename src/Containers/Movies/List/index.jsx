@@ -111,7 +111,7 @@ class MovieList extends PureComponent {
                     ))}
                 </div>
 
-                <div className="MovieList__more">
+                <div className="MoviesList__more">
                     <Button
                         elementId="LoadMore"
                         isPrimary
