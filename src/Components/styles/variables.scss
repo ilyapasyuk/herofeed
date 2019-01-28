@@ -43,6 +43,7 @@ $menu-light: #85858e;
 
 //Sizes
 $base-size: 4px;
+
 @mixin inner {
   padding-left: ($base-size*4);
   padding-right: ($base-size*4);

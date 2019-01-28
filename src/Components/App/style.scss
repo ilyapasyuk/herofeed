@@ -1,6 +1,6 @@
 @import "../styles/variables";
-@import "../../Containers/Movies/MovieItem/style";
-@import "../../Containers/Movies/MoviePage/style";
+@import "../../Containers/Movies/List/Item/style";
+@import "../../Containers/Movies/Page/style";
 @import "../../Containers/Hero/HeroPage/style";
 @import "../../Containers/Games/GameList/style";
 @import "../../Containers/Games/GameItem/style";
@@ -34,3 +34,8 @@ menu, ul {
   }
 }
 
+.App {
+  &_container {
+    padding-top: 120px;
+  }
+}

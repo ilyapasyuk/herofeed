@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { HashRouter } from 'react-router-dom'
-import App from './UI/App'
-import './UI/styles/core.scss'
+import App from './Components/App'
+import './Components/styles/core.scss'
 
 const render = (Component) => {
     ReactDOM.render(
@@ -19,8 +19,8 @@ const render = (Component) => {
 render(App)
 
 if (module.hot) {
-    module.hot.accept('./UI/App/index.jsx', () => {
-        const App = require('./UI/App/index.jsx').default
+    module.hot.accept('./Components/App/index.jsx', () => {
+        const App = require('./Components/App/index.jsx').default
         render(App)
     })
 }
