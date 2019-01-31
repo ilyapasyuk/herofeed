@@ -1,4 +1,4 @@
-const baseSize = 4;
+const baseSize = 4
 
 export default {
     baseColor: '#fafafa',
@@ -37,7 +37,7 @@ export default {
     menuLight: '#85858e',
     baseSize,
     inner: {
-        paddingLeft: (baseSize * 4),
-        paddingRight: (baseSize * 4),
+        paddingLeft: baseSize * 4,
+        paddingRight: baseSize * 4,
     },
-};
+}
