@@ -21,6 +21,9 @@ class MovieItem extends Component {
         return (
             <Link className="Movie-item" to={`/movies/${id}`} alt={title}>
                 <div className="Movie-item__poster">
+                    <div id="preloader">
+                        <div id="loader" />
+                    </div>
                     <span className={`Movie-item__type Movie-item__type_${type}`}>{type}</span>
 
                     <span className="Movie-item__date-realise">{dateRealise}</span>
