@@ -71,7 +71,7 @@ class MovieList extends PureComponent {
             const date = [...this.state.movies, ...response]
 
             const lastItem = response[response.length - 1]
-            this.dateRealiseLastItem = lastItem.fields.date_realise
+            this.dateRealiseLastItem = lastItem.realise
 
             this.setState({
                 movies: date,

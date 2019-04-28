@@ -1,6 +1,5 @@
 import axios from 'axios'
 import API from './Api'
-import Moment from 'moment'
 
 class MoviesService {
     async getList(query) {
@@ -15,7 +14,7 @@ class MoviesService {
                 cover: fields.cover[0].thumbnails.large.url,
                 slug: fields.id,
                 universe: fields.universe,
-                realise: Moment(fields.date_realise).format('Do MMMM YYYY'),
+                realise: fields.date_realise,
             }
         })
     }
