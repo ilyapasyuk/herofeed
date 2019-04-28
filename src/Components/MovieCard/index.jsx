@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const MovieItem = ({ type, title, cover, slug, realise }) => (
+const MovieCard = ({ type, title, cover, slug, realise }) => (
     <Link className="Movie-item" to={`/movies/${slug}`} alt={title}>
         <div className="Movie-item__poster">
             <div id="preloader">
@@ -19,7 +19,7 @@ const MovieItem = ({ type, title, cover, slug, realise }) => (
     </Link>
 )
 
-MovieItem.propTypes = {
+MovieCard.propTypes = {
     type: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,
@@ -27,4 +27,4 @@ MovieItem.propTypes = {
     realise: PropTypes.string.isRequired,
 }
 
-export default MovieItem
+export default MovieCard

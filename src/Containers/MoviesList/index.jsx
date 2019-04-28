@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import MoviesService from 'Services/Movies'
 
-import MovieItem from './Item'
+import MovieCard from '../../Components/MovieCard'
 import Button from 'Components/Button'
 
 import MOVIE_FILTER from 'Constants/moviesFilter'
@@ -107,7 +107,7 @@ class MovieList extends PureComponent {
                 <div className="row">
                     {items.map((movie) => (
                         <div className="col-sm-3" key={movie.id}>
-                            <MovieItem
+                            <MovieCard
                                 type={movie.type}
                                 title={movie.title}
                                 cover={movie.cover}
