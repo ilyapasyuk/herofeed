@@ -13,7 +13,7 @@ import './styles.scss'
 
 class MovieList extends PureComponent {
     state = {
-        items: [],
+        movies: [],
         sortBy: this.props.match.params.type || undefined,
     }
 
@@ -49,7 +49,7 @@ class MovieList extends PureComponent {
                     this.dateRealiseLastItem = lastItem.realise
 
                     this.setState({
-                        items: response,
+                        movies: response,
                     })
                 })
             },
@@ -68,19 +68,19 @@ class MovieList extends PureComponent {
         }
 
         MoviesService.getList(query).then((response) => {
-            const date = [...this.state.items, ...response]
+            const date = [...this.state.movies, ...response]
 
             const lastItem = response[response.length - 1]
             this.dateRealiseLastItem = lastItem.fields.date_realise
 
             this.setState({
-                items: date,
+                movies: date,
             })
         })
     }
 
     render() {
-        const { items } = this.state
+        const { movies } = this.state
 
         return (
             <div className="MoviesList">
@@ -105,7 +105,7 @@ class MovieList extends PureComponent {
                 </div>
 
                 <div className="row">
-                    {items.map((movie) => (
+                    {movies.map((movie) => (
                         <div className="col-sm-3" key={movie.id}>
                             <MovieCard
                                 type={movie.type}
