@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react'
-import posed from 'react-pose'
+import React, { useState, useEffect } from 'react'
+import posed, { Transition } from 'react-pose'
 
 const Box = posed.div({
-    visible: {
+    enter: {
         opacity: 1,
         y: 0,
     },
-    hidden: {
+    exit: {
         opacity: 1,
         y: 0,
     },
@@ -24,28 +24,22 @@ const styles = {
     },
 }
 
-class SplashScreen extends PureComponent {
-    state = {
-        isShow: true,
-    }
+function SplashScreen() {
+    const [isShow, setView] = useState(false)
 
-    componentWillUnmount() {
-        this.setState({
-            isShow: false,
-        })
-    }
+    useEffect(() => {
+        setView(true)
+    })
 
-    render() {
-        return (
-            <Box
-                pose={this.state.isShow ? 'visible' : 'hidden'}
-                style={styles.splashScreen}
-                key="SplashScreen"
-            >
-                Loading...
-            </Box>
-        )
-    }
+    return (
+        <Transition>
+            {isShow && (
+                <Box style={styles.splashScreen} key="SplashScreen">
+                    Loading...
+                </Box>
+            )}
+        </Transition>
+    )
 }
 
 export default SplashScreen
