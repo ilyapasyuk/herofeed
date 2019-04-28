@@ -7,7 +7,7 @@ const Box = posed.div({
         y: 0,
     },
     exit: {
-        opacity: 1,
+        opacity: 0,
         y: 0,
     },
 })

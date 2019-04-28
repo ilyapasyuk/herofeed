@@ -66,8 +66,6 @@ class MovieList extends PureComponent {
             ],
         }
 
-        console.log(query)
-
         MoviesService.getList(query).then((response) => {
             const date = [...this.state.items, ...response]
 
@@ -81,7 +79,6 @@ class MovieList extends PureComponent {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="MoviesList">
                 <div className="MoviesList__filter">
@@ -92,6 +89,7 @@ class MovieList extends PureComponent {
                                 to={{
                                     pathname: `/movies/list/${item.type}`,
                                 }}
+                                key={item.id}
                             >
                                 <Button
                                     elementId={`movies-${item.type}-button`}
