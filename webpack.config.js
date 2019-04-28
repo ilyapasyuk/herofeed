@@ -153,6 +153,8 @@ if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
         open: true,
         hot: true,
     }
+
+    config.devtool = 'cheap-module-eval-source-map'
     config.mode = ENV.DEVELOPMENT
 }
 
