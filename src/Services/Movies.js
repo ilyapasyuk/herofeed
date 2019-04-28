@@ -1,9 +1,23 @@
 import axios from 'axios'
 import API from './Api'
+import Moment from 'moment'
 
 class MoviesService {
-    getList(query) {
-        return API.get('Movies', query)
+    async getList(query) {
+        const moviesData = await API.get('Movies', query)
+
+        return moviesData.map((movie) => {
+            const { fields } = movie
+            return {
+                id: movie.id,
+                type: fields.type,
+                title: fields.title_en,
+                cover: fields.cover[0].thumbnails.large.url,
+                slug: fields.id,
+                universe: fields.universe,
+                realise: Moment(fields.date_realise).format('Do MMMM YYYY'),
+            }
+        })
     }
 
     async getMovie(idMovie) {

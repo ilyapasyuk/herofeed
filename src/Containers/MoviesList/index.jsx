@@ -46,7 +46,7 @@ class MovieList extends PureComponent {
 
                 MoviesService.getList(query).then((response) => {
                     const lastItem = response[response.length - 1]
-                    this.dateRealiseLastItem = lastItem.fields.date_realise
+                    this.dateRealiseLastItem = lastItem.realise
 
                     this.setState({
                         items: response,
@@ -80,6 +80,8 @@ class MovieList extends PureComponent {
     }
 
     render() {
+        const { items } = this.state
+
         return (
             <div className="MoviesList">
                 <div className="MoviesList__filter">
@@ -103,9 +105,15 @@ class MovieList extends PureComponent {
                 </div>
 
                 <div className="row">
-                    {this.state.items.map((item) => (
-                        <div className="col-sm-3" key={item.id}>
-                            <MovieItem data={item.fields} />
+                    {items.map((movie) => (
+                        <div className="col-sm-3" key={movie.id}>
+                            <MovieItem
+                                type={movie.type}
+                                title={movie.title}
+                                cover={movie.cover}
+                                slug={movie.slug}
+                                realise={movie.realise}
+                            />
                         </div>
                     ))}
                 </div>
