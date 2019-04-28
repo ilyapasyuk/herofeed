@@ -85,19 +85,19 @@ class MovieList extends PureComponent {
         return (
             <div className="MoviesList">
                 <div className="MoviesList__filter">
-                    {MOVIE_FILTER.map((item) => {
+                    {MOVIE_FILTER.map((filter) => {
                         return (
                             <NavLink
                                 activeClassName="MoviesList__filter_active"
                                 to={{
-                                    pathname: `/movies/list/${item.type}`,
+                                    pathname: `/movies/list/${filter.type}`,
                                 }}
-                                key={item.id}
+                                key={filter.type}
                             >
                                 <Button
-                                    elementId={`movies-${item.type}-button`}
-                                    title={item.title}
-                                    callBackClick={() => this.filterByType(item.type)}
+                                    elementId={`movies-${filter.type}-button`}
+                                    title={filter.title}
+                                    callBackClick={() => this.filterByType(filter.type)}
                                 />
                             </NavLink>
                         )
