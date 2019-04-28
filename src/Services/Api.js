@@ -13,18 +13,20 @@ class Api {
         return `https://api.airtable.com/v0/${project}/${baseName}`
     }
 
-    get(baseName, query) {
+    async get(baseName, query) {
         const params = {
             ...defaultParams,
             ...query,
         }
 
-        return axios({
+        const response = await axios({
             method: 'get',
             url: Api.getBaseUrl(baseName),
             params,
             paramsSerializer: () => Qs.stringify(params, { arrayFormat: 'brackets' }),
-        }).then((response) => response.data.records)
+        })
+
+        return response.data.records
     }
 }
 
