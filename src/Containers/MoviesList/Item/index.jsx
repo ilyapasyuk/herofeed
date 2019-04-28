@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import Moment from 'moment'
+import Moment from 'moment/moment'
 
 class MovieItem extends Component {
     constructor(props) {

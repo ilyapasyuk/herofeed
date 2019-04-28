@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import GameItem from '../GameItem'
+import GameItem from '../GamePage'
 import GamesService from 'Services/Games'
 
 class GameList extends PureComponent {

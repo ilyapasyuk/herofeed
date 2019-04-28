@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom'
+
 import MoviesService from 'Services/Movies'
 
 import MovieItem from './Item'
