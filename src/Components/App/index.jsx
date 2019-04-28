@@ -10,9 +10,9 @@ import SplashScreen from 'Components/SplashScreen'
 import ROUTES from 'Constants/routes'
 import './style.scss'
 
-const MovieList = React.lazy(() => import('../../Containers/Movies/List'))
-const MoviePage = React.lazy(() => import('../../Containers/Movies/Page'))
-const GameList = React.lazy(() => import('../../Containers/Games/GameList'))
+const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
+const MoviePage = React.lazy(() => import('../../Containers/MoviePage'))
+const GameList = React.lazy(() => import('../../Containers/GameList'))
 
 function App() {
     return (

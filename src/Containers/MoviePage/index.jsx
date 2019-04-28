@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import MoviesService from 'Services/Movies'
 
-export default class MoviePage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            id: props.match.params.id,
-        }
+class MoviePage extends PureComponent {
+    state = {
+        title: '',
+        cover: '',
+        dateRealise: '',
+        universe: '',
+        type: '',
     }
 
-    componentDidMount() {
-        MoviesService.getMovie(this.state.id).then((response) => {
-            this.setState({
-                title: response.title_ru,
-                cover: response.cover[0].thumbnails.large.url,
-                dateRealise: response.date_realise,
-                universe: response.universe,
-                type: response.type,
-            })
+    async componentDidMount() {
+        const movie = await MoviesService.getMovie(this.props.match.params.id)
+        this.setState({
+            title: movie.title_ru,
+            cover: movie.cover[0].thumbnails.large.url,
+            dateRealise: movie.date_realise,
+            universe: movie.universe,
+            type: movie.type,
         })
     }
 
@@ -53,3 +53,5 @@ export default class MoviePage extends Component {
         )
     }
 }
+
+export default MoviePage

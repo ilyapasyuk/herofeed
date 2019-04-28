@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom'
+
 import MoviesService from 'Services/Movies'
 
-import MovieItem from './Item'
+import MovieCard from '../../Components/MovieCard'
 import Button from 'Components/Button'
 
 import MOVIE_FILTER from 'Constants/moviesFilter'
@@ -12,7 +13,7 @@ import './styles.scss'
 
 class MovieList extends PureComponent {
     state = {
-        items: [],
+        movies: [],
         sortBy: this.props.match.params.type || undefined,
     }
 
@@ -45,10 +46,10 @@ class MovieList extends PureComponent {
 
                 MoviesService.getList(query).then((response) => {
                     const lastItem = response[response.length - 1]
-                    this.dateRealiseLastItem = lastItem.fields.date_realise
+                    this.dateRealiseLastItem = lastItem.realise
 
                     this.setState({
-                        items: response,
+                        movies: response,
                     })
                 })
             },
@@ -66,37 +67,37 @@ class MovieList extends PureComponent {
             ],
         }
 
-        console.log(query)
-
         MoviesService.getList(query).then((response) => {
-            const date = [...this.state.items, ...response]
+            const date = [...this.state.movies, ...response]
 
             const lastItem = response[response.length - 1]
-            this.dateRealiseLastItem = lastItem.fields.date_realise
+            this.dateRealiseLastItem = lastItem.realise
 
             this.setState({
-                items: date,
+                movies: date,
             })
         })
     }
 
     render() {
-        console.log(this.state)
+        const { movies } = this.state
+
         return (
             <div className="MoviesList">
                 <div className="MoviesList__filter">
-                    {MOVIE_FILTER.map((item) => {
+                    {MOVIE_FILTER.map((filter) => {
                         return (
                             <NavLink
                                 activeClassName="MoviesList__filter_active"
                                 to={{
-                                    pathname: `/movies/list/${item.type}`,
+                                    pathname: `/movies/list/${filter.type}`,
                                 }}
+                                key={filter.type}
                             >
                                 <Button
-                                    elementId={`movies-${item.type}-button`}
-                                    title={item.title}
-                                    callBackClick={() => this.filterByType(item.type)}
+                                    elementId={`movies-${filter.type}-button`}
+                                    title={filter.title}
+                                    callBackClick={() => this.filterByType(filter.type)}
                                 />
                             </NavLink>
                         )
@@ -104,9 +105,15 @@ class MovieList extends PureComponent {
                 </div>
 
                 <div className="row">
-                    {this.state.items.map((item) => (
-                        <div className="col-sm-3" key={item.id}>
-                            <MovieItem data={item.fields} />
+                    {movies.map((movie) => (
+                        <div className="col-sm-3" key={movie.id}>
+                            <MovieCard
+                                type={movie.type}
+                                title={movie.title}
+                                cover={movie.cover}
+                                slug={movie.slug}
+                                realise={movie.realise}
+                            />
                         </div>
                     ))}
                 </div>

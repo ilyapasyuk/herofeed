@@ -93,7 +93,7 @@ const config = {
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
     const MiniCssExtractPlugin = require('mini-css-extract-plugin')
     const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-    const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+    const TerserPlugin = require('terser-webpack-plugin')
     const Autoprefixer = require('autoprefixer')
 
     config.output.filename = '[name]-[chunkhash].js'
@@ -132,7 +132,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
         ],
     })
 
-    config.optimization.minimizer.push(new UglifyJsPlugin())
+    config.optimization.minimizer.push(new TerserPlugin())
     config.optimization.minimizer.push(new OptimizeCssAssetsPlugin({}))
 
     config.optimization.minimize = true
@@ -153,6 +153,8 @@ if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
         open: true,
         hot: true,
     }
+
+    config.devtool = 'cheap-module-eval-source-map'
     config.mode = ENV.DEVELOPMENT
 }
 

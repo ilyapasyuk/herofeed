@@ -2,16 +2,28 @@ import axios from 'axios'
 import API from './Api'
 
 class MoviesService {
-    getList(query) {
-        return API.get('Movies', query)
+    async getList(query) {
+        const moviesData = await API.get('Movies', query)
+
+        return moviesData.map((movie) => {
+            const { fields } = movie
+            return {
+                id: movie.id,
+                type: fields.type,
+                title: fields.title_en,
+                cover: fields.cover[0].thumbnails.large.url,
+                slug: fields.id,
+                universe: fields.universe,
+                realise: fields.date_realise,
+            }
+        })
     }
 
-    getMovie(idMovie) {
+    async getMovie(idMovie) {
         const idMovieUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idMovie}"`
+        const movieData = await axios.get(idMovieUrl)
 
-        return axios.get(idMovieUrl).then((response) => {
-            return response.data.records[0].fields
-        })
+        return movieData.data.records[0].fields
     }
 }
 
