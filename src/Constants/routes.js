@@ -1,7 +1,6 @@
 export default {
     MOVIES: {
-        LIST: '/movies/list',
-        LIST_FILTRED: '/movies/list/:type',
+        LIST: '/movies/list/:type',
         ITEM: '/movies/:id',
     },
     GAMES: {

@@ -21,8 +21,7 @@ function App() {
             <main className="App_container container">
                 <Switch>
                     <Route exact path="/" component={MovieList} />
-                    <Route exact path={ROUTES.MOVIES.LIST} component={MovieList} />
-                    <Route exact path={ROUTES.MOVIES.LIST_FILTRED} component={MovieList} />
+                    <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
                     <Route path={ROUTES.MOVIES.ITEM} component={MoviePage} />
                     <Route path={ROUTES.GAMES.LIST} component={GameList} />
                 </Switch>

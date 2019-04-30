@@ -1,13 +1,10 @@
 import React, { PureComponent } from 'react'
-import { NavLink } from 'react-router-dom'
 
-import MoviesService from 'Services/Movies'
+import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } from 'Services/Movies'
 
-import MovieCard from '../../Components/MovieCard'
+import MovieCard from 'Components/MovieCard'
 import Button from 'Components/Button'
-
-import MOVIE_FILTER from 'Constants/moviesFilter'
-import MOVIE_TYPE from 'Constants/movieTypes'
+import Filter from 'Components/Filter'
 
 import './styles.scss'
 
@@ -44,7 +41,7 @@ class MovieList extends PureComponent {
                     delete query.filterByFormula
                 }
 
-                MoviesService.getList(query).then((response) => {
+                getMovies(query).then((response) => {
                     const lastItem = response[response.length - 1]
                     this.dateRealiseLastItem = lastItem.realise
 
@@ -67,7 +64,7 @@ class MovieList extends PureComponent {
             ],
         }
 
-        MoviesService.getList(query).then((response) => {
+        getMovies(query).then((response) => {
             const date = [...this.state.movies, ...response]
 
             const lastItem = response[response.length - 1]
@@ -84,25 +81,7 @@ class MovieList extends PureComponent {
 
         return (
             <div className="MoviesList">
-                <div className="MoviesList__filter">
-                    {MOVIE_FILTER.map((filter) => {
-                        return (
-                            <NavLink
-                                activeClassName="MoviesList__filter_active"
-                                to={{
-                                    pathname: `/movies/list/${filter.type}`,
-                                }}
-                                key={filter.type}
-                            >
-                                <Button
-                                    elementId={`movies-${filter.type}-button`}
-                                    title={filter.title}
-                                    callBackClick={() => this.filterByType(filter.type)}
-                                />
-                            </NavLink>
-                        )
-                    })}
-                </div>
+                <Filter items={MOVIE_FILTER} onClick={(filterId) => this.filterByType(filterId)} />
 
                 <div className="row">
                     {movies.map((movie) => (

@@ -23,7 +23,7 @@ const config = {
                 default: false,
                 commons: {
                     test: /node_modules/,
-                    name: 'lib',
+                    name: 'vendor',
                     chunks: 'initial',
                     minSize: 1,
                 },
@@ -141,7 +141,7 @@ if (process.env.NODE_ENV === ENV.PRODUCTION) {
 
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
     config.module.rules.push({
-        test: /\.scss/,
+        test: /\.(scss|css)$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
     })

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import MoviesService from 'Services/Movies'
+import { getMovie } from 'Services/Movies'
 
 class MoviePage extends PureComponent {
     state = {
@@ -11,7 +11,7 @@ class MoviePage extends PureComponent {
     }
 
     async componentDidMount() {
-        const movie = await MoviesService.getMovie(this.props.match.params.id)
+        const movie = await getMovie(this.props.match.params.id)
         this.setState({
             title: movie.title_ru,
             cover: movie.cover[0].thumbnails.large.url,

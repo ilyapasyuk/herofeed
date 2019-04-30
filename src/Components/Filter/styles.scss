@@ -1,0 +1,16 @@
+.Filter {
+    margin-bottom: 30px;
+
+    &__item {
+        margin-right: 20px;
+
+        &_active {
+            button {
+                background-color: #5867dd;
+                box-shadow: 0px 5px 10px 2px rgba(88, 103, 221, 0.19) !important;
+                border: 1px solid #5867dd;
+                color: #fff;
+            }
+        }
+    }
+}
