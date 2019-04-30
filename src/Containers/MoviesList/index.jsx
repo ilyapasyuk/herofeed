@@ -15,42 +15,39 @@ class MovieList extends PureComponent {
     }
 
     componentDidMount() {
-        this.filterByType(this.state.sortBy)
+        const { sortBy } = this.state
+
+        return this.filterByType(sortBy)
     }
 
-    filterByType(type) {
-        this.setState(
-            {
-                sortBy: type,
-            },
-            () => {
-                const query = {
-                    sort: [
-                        {
-                            field: 'date_realise',
-                            direction: 'desc',
-                        },
-                    ],
-                }
+    async filterByType(type) {
+        const { sortBy } = this.state
+        await this.setState({ sortBy: type })
 
-                if (this.state.sortBy) {
-                    query.filterByFormula = `{type} = "${this.state.sortBy}"`
-                }
+        const query = {
+            sort: [
+                {
+                    field: 'date_realise',
+                    direction: 'desc',
+                },
+            ],
+        }
 
-                if (this.state.sortBy === MOVIE_TYPE.ALL) {
-                    delete query.filterByFormula
-                }
+        if (sortBy) {
+            query.filterByFormula = `{type} = "${sortBy}"`
+        }
 
-                getMovies(query).then((response) => {
-                    const lastItem = response[response.length - 1]
-                    this.dateRealiseLastItem = lastItem.realise
+        if (sortBy === MOVIE_TYPE.ALL) {
+            delete query.filterByFormula
+        }
 
-                    this.setState({
-                        movies: response,
-                    })
-                })
-            },
-        )
+        const movies = await getMovies(query)
+        const lastItem = movies[movies.length - 1]
+        this.dateRealiseLastItem = lastItem.realise
+
+        this.setState({
+            movies,
+        })
     }
 
     handleLoadMore(date) {
