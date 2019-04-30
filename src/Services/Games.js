@@ -6,7 +6,14 @@ const SOURCE =
 class GamesService {
     async getList() {
         const games = await axios.get(SOURCE)
-        return Object.values(games.data.records)
+        return games.data.records.map(game => {
+            return {
+                platforms: game.fields.platforms,
+                title: game.fields.title_en,
+                realise: game.fields.date_relise,
+                id: game.id,
+            }
+        })
     }
 }
 

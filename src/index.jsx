@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom'
 import App from './Components/App'
 import './Components/styles/core.scss'
 
-const render = (Component) => {
+const render = Component => {
     ReactDOM.render(
         <AppContainer>
             <HashRouter>

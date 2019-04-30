@@ -11,7 +11,7 @@ export async function getMovie(idMovie) {
 export async function getList(query) {
     const moviesData = await API.get('Movies', query)
 
-    return moviesData.map((movie) => {
+    return moviesData.map(movie => {
         const { fields } = movie
         return {
             id: movie.id,

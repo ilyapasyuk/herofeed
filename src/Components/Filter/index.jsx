@@ -8,7 +8,7 @@ import './styles.scss'
 const Filter = ({ items, onClick }) => {
     return (
         <div className="Filter">
-            {items.map((item) => {
+            {items.map(item => {
                 return (
                     <NavLink
                         activeClassName="Filter__item_active"
