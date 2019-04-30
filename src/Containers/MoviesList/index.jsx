@@ -3,26 +3,23 @@ import React, { PureComponent } from 'react'
 import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } from 'Services/Movies'
 
 import MovieCard from 'Components/MovieCard'
-import Button from 'Components/Button'
 import Filter from 'Components/Filter'
 
 import './styles.scss'
 
 class MovieList extends PureComponent {
+    sortBy = this.props.match.params.type || undefined
     state = {
         movies: [],
-        sortBy: this.props.match.params.type || undefined,
     }
 
     componentDidMount() {
-        const { sortBy } = this.state
-
-        return this.filterByType(sortBy)
+        const { sortBy } = this
+        return this.setFilter(sortBy)
     }
 
-    async filterByType(type) {
-        const { sortBy } = this.state
-        await this.setState({ sortBy: type })
+    setFilter = sortBy => {
+        this.sortBy = sortBy
 
         const query = {
             sort: [
@@ -41,35 +38,14 @@ class MovieList extends PureComponent {
             delete query.filterByFormula
         }
 
+        return this.getData(query)
+    }
+
+    getData = async query => {
         const movies = await getMovies(query)
-        const lastItem = movies[movies.length - 1]
-        this.dateRealiseLastItem = lastItem.realise
 
         this.setState({
             movies,
-        })
-    }
-
-    handleLoadMore(date) {
-        const query = {
-            filterByFormula: `IS_BEFORE({date_realise}, DATETIME_PARSE('${date}'))`,
-            sort: [
-                {
-                    field: 'date_realise',
-                    direction: 'desc',
-                },
-            ],
-        }
-
-        getMovies(query).then((response) => {
-            const date = [...this.state.movies, ...response]
-
-            const lastItem = response[response.length - 1]
-            this.dateRealiseLastItem = lastItem.realise
-
-            this.setState({
-                movies: date,
-            })
         })
     }
 
@@ -78,10 +54,10 @@ class MovieList extends PureComponent {
 
         return (
             <div className="MoviesList">
-                <Filter items={MOVIE_FILTER} onClick={(filterId) => this.filterByType(filterId)} />
+                <Filter items={MOVIE_FILTER} onClick={filterId => this.setFilter(filterId)} />
 
                 <div className="row">
-                    {movies.map((movie) => (
+                    {movies.map(movie => (
                         <div className="col-sm-3" key={movie.id}>
                             <MovieCard
                                 type={movie.type}
@@ -92,15 +68,6 @@ class MovieList extends PureComponent {
                             />
                         </div>
                     ))}
-                </div>
-
-                <div className="MoviesList__more">
-                    <Button
-                        elementId="LoadMore"
-                        isPrimary
-                        callBackClick={() => this.handleLoadMore(this.dateRealiseLastItem)}
-                        title="Load more"
-                    />
                 </div>
             </div>
         )
