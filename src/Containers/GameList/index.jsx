@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import GameItem from '../GamePage'
+import GameCard from 'Components/GameCard'
 import GamesService from 'Services/Games'
 
 class GameList extends PureComponent {
@@ -20,9 +20,13 @@ class GameList extends PureComponent {
 
         return (
             <div className="Games-list row">
-                {games.map((item) => (
-                    <div className="col-sm-3" key={item.id}>
-                        <GameItem data={item.fields} />
+                {games.map(game => (
+                    <div className="col-sm-3" key={game.id}>
+                        <GameCard
+                            relise={game.relise}
+                            title={game.title}
+                            platforms={game.platforms}
+                        />
                     </div>
                 ))}
             </div>

@@ -16,7 +16,7 @@ function Menu() {
                 </Link>
 
                 <div className="Menu__items">
-                    {PAGES.map((page) => (
+                    {PAGES.map(page => (
                         <NavLink
                             to={page.state}
                             className="Menu__item"
