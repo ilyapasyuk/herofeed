@@ -1,1 +1,3 @@
 # herofeed
+
+`yarn start`
