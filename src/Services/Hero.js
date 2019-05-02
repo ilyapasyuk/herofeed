@@ -1,10 +1,7 @@
-import axios from 'axios'
+import API from 'Services/Api'
 
-export default class HeroService {
-    async getHero(idHero) {
-        const idUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/characters?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idHero}"`
-        const heroData = await axios.get(idUrl)
+export async function getHero(id) {
+    const heroData = await API('heros').find(id)
 
-        return heroData.data.records[0].fields
-    }
+    return heroData.data.records[0].fields
 }
