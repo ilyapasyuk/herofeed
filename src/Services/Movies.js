@@ -1,23 +1,26 @@
-import axios from 'axios'
 import API from './Api'
 
-export async function getMovie(idMovie) {
-    const idMovieUrl = `https://api.airtable.com/v0/app0a8OYcOZAv6uCv/movies?api_key=keyFR1R9B9wqDZeOz&filterByFormula=id="${idMovie}"`
-    const movieData = await axios.get(idMovieUrl)
+export async function getMovie(id) {
+    const movieData = await API('movies').find(id)
 
     return movieData.data.records[0].fields
 }
 
-export async function getList(query) {
-    const moviesData = await API.get('Movies', query)
+export async function getList() {
+    const movies = await API('movies')
+        .select({ view: 'Grid view', maxRecords: 100 })
+        .firstPage()
 
-    return moviesData.map(movie => {
+    return movies.map(movie => {
         const { fields } = movie
         return {
             id: movie.id,
             type: fields.type,
             title: fields.title_en,
-            cover: fields.cover[0].thumbnails.large.url,
+            cover:
+                fields.cover && fields.cover[0].thumbnails.large.url
+                    ? fields.cover[0].thumbnails.large.url
+                    : null,
             slug: fields.id,
             universe: fields.universe,
             realise: fields.date_realise,

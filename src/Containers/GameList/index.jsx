@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import GameCard from 'Components/GameCard'
-import GamesService from 'Services/Games'
+import { getList } from 'Services/Games'
 
 class GameList extends PureComponent {
     state = {
@@ -8,7 +8,7 @@ class GameList extends PureComponent {
     }
 
     async componentDidMount() {
-        const games = await GamesService.getList()
+        const games = await getList()
 
         this.setState({
             games,
