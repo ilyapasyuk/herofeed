@@ -39,10 +39,10 @@ class MovieList extends PureComponent {
                     {movies.map(movie => (
                         <div className="col-sm-3" key={movie.id}>
                             <MovieCard
+                                id={movie.id}
                                 type={movie.type}
                                 title={movie.title}
                                 cover={movie.cover}
-                                slug={movie.slug}
                                 realise={movie.realise}
                             />
                         </div>

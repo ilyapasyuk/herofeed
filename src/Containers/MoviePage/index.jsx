@@ -13,7 +13,7 @@ class MoviePage extends PureComponent {
     async componentDidMount() {
         const movie = await getMovie(this.props.match.params.id)
         this.setState({
-            title: movie.title_ru,
+            title: movie.title_en,
             cover: movie.cover[0].thumbnails.large.url,
             dateRealise: movie.date_realise,
             universe: movie.universe,
@@ -33,19 +33,19 @@ class MoviePage extends PureComponent {
                 </div>
                 <div className="col-sm-4">
                     <div className="Movie-page__item">
-                        <b>Релиз</b>
+                        <b>Realise</b>
                         <span>{dateRealise}</span>
                     </div>
                     <div className="Movie-page__item">
-                        <b>Вселенная</b>
+                        <b>Universe</b>
                         <span>{universe}</span>
                     </div>
                     <div className="Movie-page__item">
-                        <b>Тип</b>
+                        <b>Type</b>
                         <span>{type}</span>
                     </div>
                     <div className="Movie-page__item">
-                        <b>Оригинальное название</b>
+                        <b>Title</b>
                         <span>{title}</span>
                     </div>
                 </div>

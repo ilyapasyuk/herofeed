@@ -2,8 +2,7 @@ import API from './Api'
 
 export async function getMovie(id) {
     const movieData = await API('movies').find(id)
-
-    return movieData.data.records[0].fields
+    return movieData.fields
 }
 
 export async function getList(filterByFormula = undefined) {
