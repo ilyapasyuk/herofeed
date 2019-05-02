@@ -7,13 +7,22 @@ import Filter from 'Components/Filter'
 
 import './styles.scss'
 
+function setType(type) {
+    return type === MOVIE_TYPE.ALL ? '' : `{type} = "${type}"`
+}
+
 class MovieList extends PureComponent {
     state = {
         movies: [],
     }
 
-    async componentDidMount() {
-        const movies = await getMovies()
+    componentDidMount() {
+        const type = this.props.match.params.type || MOVIE_TYPE.ALL
+        return this.getData(setType(type))
+    }
+
+    async getData(filterByFormula) {
+        const movies = await getMovies(filterByFormula)
         this.setState({
             movies,
         })
@@ -24,7 +33,7 @@ class MovieList extends PureComponent {
 
         return (
             <div className="MoviesList">
-                {/*<Filter items={MOVIE_FILTER} onClick={filterId => this.setFilter(filterId)} />*/}
+                <Filter items={MOVIE_FILTER} onClick={type => this.getData(setType(type))} />
 
                 <div className="row">
                     {movies.map(movie => (

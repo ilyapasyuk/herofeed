@@ -6,13 +6,14 @@ export async function getMovie(id) {
     return movieData.data.records[0].fields
 }
 
-export async function getList() {
+export async function getList(filterByFormula = undefined) {
     const movies = await API('movies')
-        .select({ view: 'Grid view', maxRecords: 100 })
+        .select({ view: 'Grid view', maxRecords: 100, filterByFormula })
         .firstPage()
 
     return movies.map(movie => {
         const { fields } = movie
+
         return {
             id: movie.id,
             type: fields.type,
@@ -20,7 +21,7 @@ export async function getList() {
             cover:
                 fields.cover && fields.cover[0].thumbnails.large.url
                     ? fields.cover[0].thumbnails.large.url
-                    : null,
+                    : '',
             slug: fields.id,
             universe: fields.universe,
             realise: fields.date_realise,
