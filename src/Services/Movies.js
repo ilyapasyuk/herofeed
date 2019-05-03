@@ -36,8 +36,18 @@ export const TYPES = {
 }
 
 export const FILTER = [
-    { title: 'All', id: TYPES.ALL, pathname: `/movies/list/${TYPES.ALL}` },
-    { title: 'Movies', id: TYPES.MOVIE, pathname: `/movies/list/${TYPES.MOVIE}` },
-    { title: 'TV show', id: TYPES.TV_SHOW, pathname: `/movies/list/${TYPES.TV_SHOW}` },
-    { title: 'Animation', id: TYPES.ANIMATION, pathname: `/movies/list/${TYPES.ANIMATION}` },
+    { title: 'All', id: TYPES.ALL, pathname: `/movies/list/${TYPES.ALL}`, isSelect: false },
+    { title: 'Movies', id: TYPES.MOVIE, pathname: `/movies/list/${TYPES.MOVIE}`, isSelect: false },
+    {
+        title: 'TV show',
+        id: TYPES.TV_SHOW,
+        pathname: `/movies/list/${TYPES.TV_SHOW}`,
+        isSelect: false,
+    },
+    {
+        title: 'Animation',
+        id: TYPES.ANIMATION,
+        pathname: `/movies/list/${TYPES.ANIMATION}`,
+        isSelect: false,
+    },
 ]

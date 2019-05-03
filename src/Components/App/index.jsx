@@ -1,4 +1,3 @@
-// Vendor
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 

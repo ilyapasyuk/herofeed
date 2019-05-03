@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const GameCard = ({ title, relise, platforms }) => {
     return (
@@ -14,6 +15,12 @@ const GameCard = ({ title, relise, platforms }) => {
             </div>
         </div>
     )
+}
+
+GameCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    relise: PropTypes.string.isRequired,
+    platforms: PropTypes.array.isRequired,
 }
 
 export default GameCard

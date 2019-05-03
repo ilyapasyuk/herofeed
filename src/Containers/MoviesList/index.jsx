@@ -14,26 +14,33 @@ function setType(type) {
 class MovieList extends PureComponent {
     state = {
         movies: [],
+        filter: MOVIE_FILTER,
     }
 
     componentDidMount() {
         const type = this.props.match.params.type || MOVIE_TYPE.ALL
-        return this.getData(setType(type))
+        return this.getData(type)
     }
 
-    async getData(filterByFormula) {
+    async getData(type) {
+        const filterByFormula = setType(type)
         const movies = await getMovies(filterByFormula)
+
         this.setState({
             movies,
+            filter: MOVIE_FILTER.map(filter => ({
+                ...filter,
+                isSelect: filter.id === type,
+            })),
         })
     }
 
     render() {
-        const { movies } = this.state
+        const { movies, filter } = this.state
 
         return (
             <div className="MoviesList">
-                <Filter items={MOVIE_FILTER} onClick={type => this.getData(setType(type))} />
+                <Filter items={filter} onClick={type => this.getData(type)} />
 
                 <div className="row">
                     {movies.map(movie => (

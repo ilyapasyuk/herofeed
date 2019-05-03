@@ -22,7 +22,6 @@ Button.propTypes = {
     title: PropTypes.string.isRequired,
     callBackClick: PropTypes.func.isRequired,
     elementId: PropTypes.string.isRequired,
-
     isLink: PropTypes.bool,
     isPrimary: PropTypes.bool,
     isBlock: PropTypes.bool,

@@ -13,15 +13,14 @@ const Filter = ({ items, onClick }) => {
                     <NavLink
                         activeClassName="Filter__item_active"
                         className="Filter__item"
-                        to={{
-                            pathname: item.pathname,
-                        }}
+                        to={item.pathname}
                         key={item.id}
                     >
                         <Button
                             elementId={`movies-${item.id}-button`}
                             title={item.title}
                             callBackClick={() => onClick(item.id)}
+                            isPrimary={item.isSelect}
                         />
                     </NavLink>
                 )
@@ -31,7 +30,12 @@ const Filter = ({ items, onClick }) => {
 }
 
 Filter.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.shape({
+        id: PropTypes.string,
+        pathname: PropTypes.string,
+        title: PropTypes.string,
+        isSelect: PropTypes.bool,
+    }).isRequired,
     onClick: PropTypes.func.isRequired,
 }
 
