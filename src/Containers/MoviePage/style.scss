@@ -1,32 +1,33 @@
 @import '../../Components/styles/variables';
 
 .Movie-page {
-  padding-top: $base-size * 4;
-  padding-bottom: $base-size * 4;
+    padding-top: $base-size * 4;
+    padding-bottom: $base-size * 4;
 
-  &__cover {
-    margin-bottom: $base-size * 4;
+    &__cover {
+        margin-bottom: $base-size * 4;
 
-    @media (min-width: 768px) {
-      margin-bottom: 0;
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: $base-size;
+        }
     }
 
-    img {
-      max-width: 100%;
-      border-radius: $base-size;
-    }
-  }
+    &__item {
+        display: flex;
+        font-size: $base-size * 3;
+        margin-bottom: $base-size * 2;
 
-  &__item {
-    display: flex;
-    font-size: $base-size * 3;
-    margin-bottom: $base-size * 2;
-
-    b,span {
-      flex: 1 100%;
+        b,
+        span {
+            flex: 1 100%;
+        }
+        span {
+            color: $menu-light;
+        }
     }
-    span {
-      color: $menu-light;
-    }
-  }
 }
