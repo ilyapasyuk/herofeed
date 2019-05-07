@@ -9,7 +9,7 @@
   "author": "Ilya Pasyuk <pasyuk.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "airtable": "0.5.10",
+    "airtable": "0.6.0",
     "classnames": "2.2.6",
     "dayjs": "1.8.13",
     "prop-types": "15.7.2",

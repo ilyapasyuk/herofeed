@@ -1031,10 +1031,10 @@ acorn@^6.0.5, acorn@^6.0.7:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
 
-airtable@0.5.10:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/airtable/-/airtable-0.5.10.tgz#89ea398393fac46f04a1ea810b97bfcf6bf07012"
-  integrity sha512-dasOg2FpNsydcqlYJ0rsteop54i0uU4kYINkjv3AMW5w9ledIY1W0mwEP8ZVrOokH8o9BLyNAEvaWJUTMFAJhg==
+airtable@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/airtable/-/airtable-0.6.0.tgz#b29642bc2ef56ee612805599f6d502ac16818e6c"
+  integrity sha512-+5BQPQu1zUDsnlPyXPAigupxJCdXzZbUtv98jecVgis3eQRWR1Xo6oPWAVoqqTep/Z2ICVowYUUnuvHeNVE3ig==
   dependencies:
     lodash "4.17.11"
     request "2.88.0"
