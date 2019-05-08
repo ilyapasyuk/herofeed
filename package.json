@@ -11,7 +11,7 @@
   "dependencies": {
     "airtable": "0.5.10",
     "classnames": "2.2.6",
-    "dayjs": "1.8.13",
+    "dayjs": "1.8.14",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
