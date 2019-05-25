@@ -1,6 +1,7 @@
 // Vendor
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
 
 // Components
 import Menu from 'Components/Menu'
@@ -31,4 +32,4 @@ function App() {
     )
 }
 
-export default App
+export default hot(App)
