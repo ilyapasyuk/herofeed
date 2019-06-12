@@ -9,7 +9,6 @@ import SplashScreen from 'Components/SplashScreen'
 
 // Constants
 import ROUTES from 'Constants/routes'
-import './style.scss'
 
 const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
 const MoviePage = React.lazy(() => import('../../Containers/MoviePage'))

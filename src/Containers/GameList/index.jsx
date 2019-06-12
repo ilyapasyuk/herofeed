@@ -19,7 +19,11 @@ export default function GameList() {
         <Row>
             {games.map(game => (
                 <Col sm={3} key={game.id}>
-                    <GameCard relise={game.relise} title={game.title} platforms={game.platforms} />
+                    <GameCard
+                        realise={game.realise}
+                        title={game.title}
+                        platforms={game.platforms}
+                    />
                 </Col>
             ))}
         </Row>
