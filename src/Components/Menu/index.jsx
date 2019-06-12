@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
+import PAGES from 'Constants/menu'
 
 import Logo from './logo.png'
-
-import PAGES from 'Constants/menu'
 
 const useStyles = createUseStyles({
     base: {
