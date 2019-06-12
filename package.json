@@ -46,6 +46,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "postcss-loader": "3.0.0",
     "prettier": "1.17.0",
+    "react-jss": "10.0.0-alpha.17",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
