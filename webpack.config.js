@@ -91,61 +91,17 @@ const config = {
 }
 
 if (process.env.NODE_ENV === ENV.PRODUCTION) {
-    const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-    const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
     const TerserPlugin = require('terser-webpack-plugin')
-    const Autoprefixer = require('autoprefixer')
 
     config.output.filename = '[name]-[chunkhash].js'
 
-    config.plugins.push(
-        new MiniCssExtractPlugin({
-            filename: 'app-[chunkhash].css',
-            chunkFilename: '[id].css',
-        }),
-    )
-    config.module.rules.push({
-        test: /\.(scss|css)$/,
-        use: [
-            MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    minimize: {
-                        safe: true,
-                    },
-                },
-            },
-            {
-                loader: 'postcss-loader',
-                options: {
-                    autoprefixer: {
-                        browsers: ['last 2 versions'],
-                    },
-                    plugins: () => [Autoprefixer],
-                },
-            },
-            {
-                loader: 'sass-loader',
-                options: {},
-            },
-        ],
-    })
-
     config.optimization.minimizer.push(new TerserPlugin())
-    config.optimization.minimizer.push(new OptimizeCssAssetsPlugin({}))
 
     config.optimization.minimize = true
     config.mode = ENV.PRODUCTION
 }
 
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
-    config.module.rules.push({
-        test: /\.(scss|css)$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-    })
-
     config.plugins.push(new webpack.HotModuleReplacementPlugin())
 
     config.devServer = {
