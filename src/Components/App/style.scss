@@ -1,7 +1,5 @@
 @import '../styles/variables';
 @import '../MovieCard/style';
-@import '../../Containers/HeroPage/style';
-@import '../../Containers/GameList/style';
 @import '../GameCard/style';
 
 html {
@@ -26,10 +24,4 @@ menu,
 ul {
     margin: 0;
     padding: 0;
-}
-
-.container {
-    @media (min-width: 768px) {
-        padding: 0 16px;
-    }
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Row, Col } from 'react-grid-system'
 import { getMovie } from 'Services/Movies'
 
 const MoviePage = ({ match }) => {
@@ -22,13 +23,13 @@ const MoviePage = ({ match }) => {
     })
 
     return (
-        <div className="row">
-            <div className="col-sm-3">
+        <Row>
+            <Col sm={3}>
                 <div>
                     <img src={cover} alt={title} />
                 </div>
-            </div>
-            <div className="col-sm-4">
+            </Col>
+            <Col sm={4}>
                 <div>
                     <b>Realise</b>
                     <span>{dateRealise}</span>
@@ -45,8 +46,8 @@ const MoviePage = ({ match }) => {
                     <b>Title</b>
                     <span>{title}</span>
                 </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 

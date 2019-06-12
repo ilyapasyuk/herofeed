@@ -7,6 +7,6 @@ export default class HeroPage extends Component {
     }
 
     render() {
-        return <div className="Hero-page container">{this.data.title_ru}</div>
+        return <div className="Hero-page">{this.data.title_ru}</div>
     }
 }

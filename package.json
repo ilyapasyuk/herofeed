@@ -1,6 +1,6 @@
 {
   "name": "herofeed",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "herofeed",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
@@ -15,7 +15,8 @@
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-hot-loader": "4.8.4",
+    "react-grid-system": "4.4.6",
+    "react-jss": "10.0.0-alpha.17",
     "react-pose": "4.0.8",
     "react-router-dom": "5.0.0"
   },
@@ -46,7 +47,6 @@
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "postcss-loader": "3.0.0",
     "prettier": "1.17.0",
-    "react-jss": "10.0.0-alpha.17",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",

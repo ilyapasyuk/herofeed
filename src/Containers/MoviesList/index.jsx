@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Row, Col } from 'react-grid-system'
 
 import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } from 'Services/Movies'
 
@@ -35,9 +36,9 @@ const MovieList = ({ match }) => {
         <div className="MoviesList">
             <Filter items={filter} onClick={type => getData(type)} />
 
-            <div className="row">
+            <Row>
                 {movies.map(movie => (
-                    <div className="col-sm-3" key={movie.id}>
+                    <Col sm={3} key={movie.id}>
                         <MovieCard
                             id={movie.id}
                             type={movie.type}
@@ -45,9 +46,9 @@ const MovieList = ({ match }) => {
                             cover={movie.cover}
                             realise={movie.realise}
                         />
-                    </div>
+                    </Col>
                 ))}
-            </div>
+            </Row>
         </div>
     )
 }

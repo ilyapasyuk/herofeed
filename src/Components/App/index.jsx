@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
+import { Container } from 'react-grid-system'
 
 // Components
 import Menu from 'Components/Menu'
@@ -26,12 +27,14 @@ function App() {
         <Suspense fallback={<SplashScreen />}>
             <Menu />
             <main className={styles.container}>
-                <Switch>
-                    <Route exact path="/" component={MovieList} />
-                    <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
-                    <Route path={ROUTES.MOVIES.ITEM} component={MoviePage} />
-                    <Route path={ROUTES.GAMES.LIST} component={GameList} />
-                </Switch>
+                <Container>
+                    <Switch>
+                        <Route exact path="/" component={MovieList} />
+                        <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
+                        <Route path={ROUTES.MOVIES.ITEM} component={MoviePage} />
+                        <Route path={ROUTES.GAMES.LIST} component={GameList} />
+                    </Switch>
+                </Container>
             </main>
         </Suspense>
     )
