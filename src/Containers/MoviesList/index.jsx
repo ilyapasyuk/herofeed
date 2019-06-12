@@ -5,8 +5,6 @@ import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } fro
 import MovieCard from 'Components/MovieCard'
 import Filter from 'Components/Filter'
 
-import './styles.scss'
-
 function setType(type) {
     return type === MOVIE_TYPE.ALL ? '' : `{type} = "${type}"`
 }
