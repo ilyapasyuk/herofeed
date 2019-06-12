@@ -2,20 +2,25 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Button from 'Components/Button'
+import { createUseStyles } from 'react-jss'
 
-import './styles.scss'
+const useStyles = createUseStyles({
+    filter: {
+        marginBottom: 30,
+    },
+    item: {
+        marginRight: 20,
+    },
+})
 
 const Filter = ({ items, onClick }) => {
+    const styles = useStyles()
+
     return (
-        <div className="Filter">
+        <div className={styles.filter}>
             {items.map(item => {
                 return (
-                    <NavLink
-                        activeClassName="Filter__item_active"
-                        className="Filter__item"
-                        to={item.pathname}
-                        key={item.id}
-                    >
+                    <NavLink className={styles.item} to={item.pathname} key={item.id}>
                         <Button
                             elementId={`movies-${item.id}-button`}
                             title={item.title}
