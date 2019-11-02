@@ -1,16 +1,16 @@
 import API from './Api'
 
-export async function getMovie(id) {
-    const movieData = await API('movies').find(id)
+export async function getMovie(id: string) {
+    const movieData: any = await API('movies').find(id)
     return movieData.fields
 }
 
-export async function getList(filterByFormula = undefined) {
+export async function getList(filterByFormula: any = undefined) {
     const movies = await API('movies')
         .select({ view: 'Grid view', maxRecords: 100, filterByFormula })
         .firstPage()
 
-    return movies.map(movie => {
+    return movies.map((movie: any) => {
         const { fields } = movie
 
         return {
