@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import Dayjs from 'dayjs'
 import { createUseStyles } from 'react-jss'
 import variables from '../styles/variables'
@@ -106,14 +105,14 @@ const MovieCard = ({ type, title, cover, id, realise }) => {
     const styles = useStyles(type)
 
     return (
-        <Link className={styles.MovieCard} to={`/movie/${id}`} alt={title}>
+        <div className={styles.MovieCard}>
             <div className={styles.poster}>
                 <span className={styles.type}>{type}</span>
                 <span className={styles.realise}>{Dayjs(realise).format('DD.MM.YYYY')}</span>
                 {cover && <img src={cover} alt={title} className={styles.img} />}
             </div>
             <div className={styles.title}>{title}</div>
-        </Link>
+        </div>
     )
 }
 
