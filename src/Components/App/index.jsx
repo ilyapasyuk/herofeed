@@ -11,7 +11,6 @@ import SplashScreen from 'Components/SplashScreen'
 import ROUTES from 'Constants/routes'
 
 const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
-const MoviePage = React.lazy(() => import('../../Containers/MoviePage'))
 const GameList = React.lazy(() => import('../../Containers/GameList'))
 
 const useStyles = createUseStyles({
@@ -30,7 +29,6 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={MovieList} />
                         <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
-                        <Route path={ROUTES.MOVIES.ITEM} component={MoviePage} />
                         <Route path={ROUTES.GAMES.LIST} component={GameList} />
                     </Switch>
                 </Container>

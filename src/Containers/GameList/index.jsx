@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-grid-system'
+
 import GameCard from 'Components/GameCard'
 import { getList } from 'Services/Games'
 
