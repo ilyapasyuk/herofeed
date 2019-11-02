@@ -47,6 +47,11 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader',
@@ -81,7 +86,7 @@ const config = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
         alias: {
             Services: path.resolve(__dirname, 'src/Services/'),
             Constants: path.resolve(__dirname, 'src/Constants/'),
