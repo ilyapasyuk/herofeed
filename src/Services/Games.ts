@@ -4,7 +4,7 @@ export const GAME_FIELD = {
     ID: 'id',
     PLATFORMS: 'platforms',
     TITLE_EN: 'title_en',
-    DATE_RELISE: 'DATE_RELISE',
+    DATE_RELISE: 'date_relise',
 }
 
 export async function getList() {

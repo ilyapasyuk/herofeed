@@ -1,46 +1,46 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import Button from 'Components/Button'
-import { createUseStyles } from 'react-jss'
+import styled from 'styled-components'
 
-const useStyles = createUseStyles({
-    filter: {
-        marginBottom: 30,
-    },
-    item: {
-        marginRight: 20,
-    },
-})
+import Button from 'Components/Button'
+
+const StyledFilter = styled.div`
+    margin-bottom: 30px;
+`
+
+const FilterItem = styled(NavLink)`
+    margin-right: 20px;
+`
 
 const Filter = ({ items, onClick }) => {
-    const styles = useStyles()
-
     return (
-        <div className={styles.filter}>
+        <StyledFilter>
             {items.map(item => {
                 return (
-                    <NavLink className={styles.item} to={item.pathname} key={item.id}>
+                    <FilterItem to={item.pathname} key={item.id}>
                         <Button
                             elementId={`movies-${item.id}-button`}
                             title={item.title}
-                            callBackClick={() => onClick(item.id)}
+                            onClick={() => onClick(item.id)}
                             isPrimary={item.isSelect}
                         />
-                    </NavLink>
+                    </FilterItem>
                 )
             })}
-        </div>
+        </StyledFilter>
     )
 }
 
 Filter.propTypes = {
-    items: PropTypes.shape({
-        id: PropTypes.string,
-        pathname: PropTypes.string,
-        title: PropTypes.string,
-        isSelect: PropTypes.bool,
-    }).isRequired,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            pathname: PropTypes.string,
+            title: PropTypes.string,
+            isSelect: PropTypes.bool,
+        }),
+    ).isRequired,
     onClick: PropTypes.func.isRequired,
 }
 
