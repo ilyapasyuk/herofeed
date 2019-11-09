@@ -9,6 +9,8 @@
   "author": "Ilya Pasyuk <pasyuk.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/react": "16.9.11",
+    "@types/styled-components": "4.4.0",
     "airtable": "0.5.10",
     "dayjs": "1.8.13",
     "prop-types": "15.7.2",
@@ -26,6 +28,7 @@
     "@babel/plugin-transform-runtime": "7.4.4",
     "@babel/preset-env": "7.4.4",
     "@babel/preset-react": "7.0.0",
+    "@types/prop-types": "15.7.3",
     "autoprefixer": "9.5.1",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
