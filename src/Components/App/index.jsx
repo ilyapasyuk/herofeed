@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { createUseStyles } from 'react-jss'
 import { Container } from 'react-grid-system'
+import styled from 'styled-components'
 
 // Components
 import Menu from 'Components/Menu'
@@ -13,18 +13,15 @@ import ROUTES from 'Constants/routes'
 const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
 const GameList = React.lazy(() => import('../../Containers/GameList'))
 
-const useStyles = createUseStyles({
-    container: {
-        paddingTop: 120,
-    },
-})
+const ContainerMain = styled.main`
+    padding-top: 120px;
+`
 
 function App() {
-    const styles = useStyles()
     return (
         <Suspense fallback={<SplashScreen />}>
             <Menu />
-            <main className={styles.container}>
+            <ContainerMain>
                 <Container>
                     <Switch>
                         <Route exact path="/" component={MovieList} />
@@ -32,7 +29,7 @@ function App() {
                         <Route path={ROUTES.GAMES.LIST} component={GameList} />
                     </Switch>
                 </Container>
-            </main>
+            </ContainerMain>
         </Suspense>
     )
 }
