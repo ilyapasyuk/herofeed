@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Dayjs from 'dayjs'
 import styled from 'styled-components'
 
 import variables from '../styles/variables'
 
-function getTypeBg(type) {
+function getTypeBg(type: string) {
     switch (type) {
         case 'movie':
             return '#716aca'
@@ -18,7 +17,7 @@ function getTypeBg(type) {
     }
 }
 
-const Card = styled.div`
+const Card = styled('div')`
     display: block;
     padding: 0;
     position: relative;
@@ -31,7 +30,7 @@ const Card = styled.div`
     border-radius: 4px;
 `
 
-const Paster = styled.div`
+const Paster = styled('div')`
     overflow: hidden;
     display: block;
     background-color: rgba(0, 0, 0, 0.05);
@@ -58,7 +57,7 @@ const Paster = styled.div`
     }
 `
 
-const Title = styled.h4`
+const Title = styled('h4')`
     padding: 0 20px;
     color: #575962;
     font-weight: 500;
@@ -72,7 +71,7 @@ const Title = styled.h4`
     margin: 0;
 `
 
-const Realise = styled.span`
+const Realise = styled('span')`
     color: white;
     position: absolute;
     right: ${variables.baseSize * 2}px;
@@ -84,8 +83,11 @@ const Realise = styled.span`
     pointer-events: none;
     z-index: 2;
 `
+interface TypeProps {
+    type: string
+}
 
-const Type = styled.span`
+const Type = styled.span<TypeProps>`
     position: absolute;
     left: ${variables.baseSize * 2}px;
     top: ${variables.baseSize * 2}px;
@@ -103,30 +105,27 @@ const Type = styled.span`
     color: #fff;
     z-index: 2;
 `
+interface MovieCard {
+    type: string,
+    id: string,
+    title?: string,
+    cover: string,
+    realise: string
+}
 
-const MovieCard = ({ type, title, cover, id, realise }) => {
+const MovieCard = (props: MovieCard) => {
     return (
         <Card>
             <Paster>
-                <Type type={type}>{type}</Type>
-                <Realise>{Dayjs(realise).format('DD.MM.YYYY')}</Realise>
-                {cover && <img src={cover} alt={title} />}
+                <Type type={props.type}>{props.type}</Type>
+                <Realise>{Dayjs(props.realise).format('DD.MM.YYYY')}</Realise>
+                {props.cover && <img src={props.cover} alt={props.title} />}
             </Paster>
-            {title && <Title>{title}</Title>}
+            {props.title && <Title>{props.title}</Title>}
         </Card>
     )
 }
 
-MovieCard.propTypes = {
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    cover: PropTypes.string.isRequired,
-    realise: PropTypes.string.isRequired,
-}
 
-MovieCard.defaultProps = {
-    title: '',
-}
 
 export default MovieCard
