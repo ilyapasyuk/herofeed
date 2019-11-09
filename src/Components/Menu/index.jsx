@@ -21,8 +21,10 @@ const Menu = styled.div`
 const Logo = styled(Link)`
     display: inline-flex;
     flex: 0;
+
     img {
         height: 100%;
+        display: flex;
     }
 `
 

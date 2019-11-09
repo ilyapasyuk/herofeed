@@ -21,14 +21,12 @@ function App() {
     return (
         <Suspense fallback={<SplashScreen />}>
             <Menu />
-            <ContainerMain>
-                <Container>
-                    <Switch>
-                        <Route exact path="/" component={MovieList} />
-                        <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
-                        <Route path={ROUTES.GAMES.LIST} component={GameList} />
-                    </Switch>
-                </Container>
+            <ContainerMain as={Container}>
+                <Switch>
+                    <Route exact path="/" component={MovieList} />
+                    <Route path={ROUTES.MOVIES.LIST} component={MovieList} />
+                    <Route path={ROUTES.GAMES.LIST} component={GameList} />
+                </Switch>
             </ContainerMain>
         </Suspense>
     )
