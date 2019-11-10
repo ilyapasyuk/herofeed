@@ -1,9 +1,23 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { Wizard } from 'react-onboarding'
 
 import PAGES from 'Constants/menu'
 import logoImage from './logo.png'
+
+const rule = [
+    {
+        elementId: 'logo',
+        title: 'Title 1',
+        description: 'description 1',
+    },
+    {
+        elementId: 'menu',
+        title: 'Title 2',
+        description: 'description 2',
+    },
+]
 
 const Menu = styled.div`
     padding: 0;
@@ -47,14 +61,17 @@ const MenuItem = styled(NavLink)`
 
 export default () => (
     <Menu>
-        <Logo to="/">
+        <Wizard rule={rule} />
+        <Logo to="/" id="logo">
             <img src={logoImage} alt="Herofeed" />
         </Logo>
 
-        {PAGES.map(page => (
-            <MenuItem to={page.state} activeClassName="Menu__item_active" key={page.state}>
-                {page.name}
-            </MenuItem>
-        ))}
+        <div id="menu">
+            {PAGES.map(page => (
+                <MenuItem to={page.state} activeClassName="Menu__item_active" key={page.state}>
+                    {page.name}
+                </MenuItem>
+            ))}
+        </div>
     </Menu>
 )
