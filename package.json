@@ -17,7 +17,7 @@
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-grid-system": "6.0.3",
-    "react-onboarding": "1.1.15",
+    "react-onboarding": "1.1.16",
     "react-pose": "4.0.9",
     "react-router-dom": "5.1.2",
     "styled-components": "4.4.1"

@@ -5852,10 +5852,10 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-onboarding@1.1.15:
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/react-onboarding/-/react-onboarding-1.1.15.tgz#1bd6b1076bf651ee4e2eaa9f9604785b2bfaaa21"
-  integrity sha512-7Zz8KUN4Tc+N5YdnmBpuDDkJLnE+2gWhuEwtQNf8N54eLDqdHZ/dAnbNsGPOV5wy8S37+maiMlHMToqIwkw79Q==
+react-onboarding@1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/react-onboarding/-/react-onboarding-1.1.16.tgz#0e8eb51d215bc1666f9f18f1a2d45929868feb60"
+  integrity sha512-yJPOjbQ+TT0xLxQCmrpey5yc9iR4qdmvxvMmtK0mRW/0/y6tUwS/VZ5O3wGOjpu98ERDZ7dEMZdzZg4yrhEoEg==
   dependencies:
     prop-types "^15.7.2"
 
