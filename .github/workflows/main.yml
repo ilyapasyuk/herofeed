@@ -1,4 +1,5 @@
-name: ESlint check
+
+name: reviewdog
 on: [pull_request]
 jobs:
   eslint:
@@ -6,9 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: eslint
-        uses: reviewdog/action-eslint@v1
+      - name: eslint-github-pr-check
+        uses: ./
         with:
           github_token: ${{ secrets.eslint_action }}
-          reporter: github-pr-review # Change reporter.
-          eslint_flags: 'src/'
+          reporter: github-pr-check
+          eslint_flags: 'testdata/'
+      - name: eslint-github-check
+        uses: ./
+        with:
+          github_token: ${{ secrets.eslint_action }}
+          reporter: github-check
+          level: warning
+          eslint_flags: 'testdata/'
+      - name: eslint-github-pr-review
+        uses: ./
+        with:
+          github_token: ${{ secrets.eslint_action }}
+          reporter: github-pr-review
+          eslint_flags: 'testdata/'
