@@ -1,12 +1,27 @@
-name: CI
-
-on: [push]
-
+name: reviewdog
+on: [pull_request]
 jobs:
-  build:
-
+  eslint:
+    name: runner / eslint
     runs-on: ubuntu-latest
-
     steps:
-    - name: Run ESLint
-      uses: stefanoeb/eslint-action@1.0.0
+      - uses: actions/checkout@v1
+      - name: eslint-github-pr-check
+        uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          eslint_flags: 'testdata/'
+      - name: eslint-github-check
+        uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-check
+          level: warning
+          eslint_flags: 'testdata/'
+      - name: eslint-github-pr-review
+        uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          eslint_flags: 'testdata/'
