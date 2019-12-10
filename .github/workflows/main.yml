@@ -6,23 +6,5 @@ jobs:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: eslint-github-pr-check
-        uses: ./
-        with:
-          github_token: ${{ secrets.eslint_action }}
-          reporter: github-pr-check
-          eslint_flags: 'testdata/'
-      - name: eslint-github-check
-        uses: ./
-        with:
-          github_token: ${{ secrets.eslint_action }}
-          reporter: github-check
-          level: warning
-          eslint_flags: 'testdata/'
-      - name: eslint-github-pr-review
-        uses: ./
-        with:
-          github_token: ${{ secrets.eslint_action }}
-          reporter: github-pr-review
-          eslint_flags: 'testdata/'
+      - name: ESLint Action
+      - uses: hallee/eslint-action@1.0.1
