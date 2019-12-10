@@ -1,4 +1,4 @@
-name: reviewdog
+name: ESlint check
 on: [pull_request]
 jobs:
   eslint:
