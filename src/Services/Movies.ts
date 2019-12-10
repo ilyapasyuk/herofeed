@@ -6,6 +6,9 @@ export async function getMovie(id: string) {
 }
 
 export async function getList(filterByFormula: any = undefined) {
+
+    
+
     const movies = await API('movies')
         .select({ view: 'Grid view', maxRecords: 100, filterByFormula })
         .firstPage()
