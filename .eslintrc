@@ -1,6 +1,8 @@
 {
+  "parser": "babel-eslint",
   "extends": [
     "airbnb",
+    "airbnb/hooks",
     "prettier",
     "prettier/react"
   ],
@@ -18,9 +20,15 @@
     "prettier/prettier": [
       "error",
       {
-        "trailingComma": "es5",
+        "printWidth": 100,
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": false,
         "singleQuote": true,
-        "printWidth": 100
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "arrowParens": "avoid"
       }
     ]
   },
