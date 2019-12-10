@@ -9,19 +9,19 @@ jobs:
       - name: eslint-github-pr-check
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
           eslint_flags: 'testdata/'
       - name: eslint-github-check
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           level: warning
           eslint_flags: 'testdata/'
       - name: eslint-github-pr-review
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           eslint_flags: 'testdata/'
