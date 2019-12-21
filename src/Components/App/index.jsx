@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
 import { Container } from 'react-grid-system'
 import styled from 'styled-components'
 
@@ -32,4 +33,4 @@ function App() {
     )
 }
 
-export default App
+export default hot(App)

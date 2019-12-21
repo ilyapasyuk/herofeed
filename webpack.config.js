@@ -91,6 +91,7 @@ const config = {
             Services: path.resolve(__dirname, 'src/Services/'),
             Constants: path.resolve(__dirname, 'src/Constants/'),
             Components: path.resolve(__dirname, 'src/Components/'),
+            'react-dom': '@hot-loader/react-dom',
         },
     },
 }
