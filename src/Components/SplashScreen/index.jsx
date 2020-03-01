@@ -1,16 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import posed, { Transition } from 'react-pose'
-
-const Box = posed.div({
-    enter: {
-        opacity: 1,
-        y: 0,
-    },
-    exit: {
-        opacity: 0,
-        y: 0,
-    },
-})
+import React from 'react'
 
 const styles = {
     splashScreen: {
@@ -24,22 +12,10 @@ const styles = {
     },
 }
 
-function SplashScreen() {
-    const [isShow, setView] = useState(false)
-
-    useEffect(() => {
-        setView(true)
-    })
-
-    return (
-        <Transition>
-            {isShow && (
-                <Box style={styles.splashScreen} key="SplashScreen">
-                    Loading...
-                </Box>
-            )}
-        </Transition>
-    )
-}
+const SplashScreen = () => (
+    <div style={styles.splashScreen} key="SplashScreen">
+        Loading...
+    </div>
+)
 
 export default SplashScreen
