@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { hot } from 'react-hot-loader/root'
 import { Container } from 'react-grid-system'
 import styled from 'styled-components'
 
@@ -9,7 +8,9 @@ import Menu from 'Components/Menu'
 import SplashScreen from 'Components/SplashScreen'
 
 // Constants
-import ROUTES from 'Constants/routes'
+import { ROUTES } from 'Constants/routes'
+
+import { GlobalStyles } from './style'
 
 const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
 const GameList = React.lazy(() => import('../../Containers/GameList'))
@@ -21,6 +22,7 @@ const ContainerMain = styled.main`
 function App() {
     return (
         <Suspense fallback={<SplashScreen />}>
+            <GlobalStyles />
             <Menu />
             <ContainerMain as={Container}>
                 <Switch>
@@ -33,4 +35,4 @@ function App() {
     )
 }
 
-export default hot(App)
+export default App

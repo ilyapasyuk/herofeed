@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Row, Col } from 'react-grid-system'
 
 import GameCard from 'Components/GameCard'
-import { getList } from 'Services/Games'
+import { useGames } from 'Hooks/useGames'
 
 export default function GameList() {
-    const [games, setGames] = useState([])
-
-    async function getGames() {
-        const result = await getList()
-        setGames(result)
-    }
-
-    useEffect(() => {
-        getGames()
-    }, [])
+    const { games } = useGames()
 
     return (
         <Row>

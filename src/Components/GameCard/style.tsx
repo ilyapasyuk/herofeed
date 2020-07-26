@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from 'Components/styles/variables'
+import { variables } from 'Components/styles/variables'
 
 const Card = styled.div`
     display: block;
