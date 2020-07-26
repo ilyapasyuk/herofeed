@@ -10,6 +10,8 @@ import SplashScreen from 'Components/SplashScreen'
 // Constants
 import { ROUTES } from 'Constants/routes'
 
+import { GlobalStyles } from './style'
+
 const MovieList = React.lazy(() => import('../../Containers/MoviesList'))
 const GameList = React.lazy(() => import('../../Containers/GameList'))
 
@@ -20,6 +22,7 @@ const ContainerMain = styled.main`
 function App() {
     return (
         <Suspense fallback={<SplashScreen />}>
+            <GlobalStyles />
             <Menu />
             <ContainerMain as={Container}>
                 <Switch>
