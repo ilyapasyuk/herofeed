@@ -1,6 +1,6 @@
 const baseSize = 4
 
-export default {
+export const variables = {
     baseColor: '#fafafa',
     primaryColor: '#07c25f',
     primaryDark: '#069d4d',

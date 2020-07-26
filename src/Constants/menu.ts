@@ -1,4 +1,4 @@
-import ROUTES from 'Constants/routes'
+import { ROUTES } from 'Constants/routes'
 
 export default [
     {

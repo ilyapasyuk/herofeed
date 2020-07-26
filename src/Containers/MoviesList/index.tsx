@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Row, Col } from 'react-grid-system'
 
-import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } from 'Services/Movies'
+import { getList as getMovies, TYPES as MOVIE_TYPE, FILTER as MOVIE_FILTER } from 'Services/movies'
 
+import { useMovies } from 'Hooks/useMovies'
 import MovieCard from 'Components/MovieCard'
 import Filter from 'Components/Filter'
 
@@ -10,37 +11,24 @@ function setType(type) {
     return type === MOVIE_TYPE.ALL ? '' : `{type} = "${type}"`
 }
 
-const MovieList = ({ match }) => {
-    const [movies, setMovies] = useState([])
-    const [filter, setFilter] = useState(MOVIE_FILTER)
+const MovieList = () => {
+    const [query, setQuery] = useState<string>('')
+    const { movies } = useMovies(query)
 
     async function getData(type) {
-        const filterByFormula = setType(type)
+        const filterByFormula = setQuery(setType(type))
         const result = await getMovies(filterByFormula)
-        setMovies(result)
-        setFilter(
-            MOVIE_FILTER.map(filterItem => ({
-                ...filterItem,
-                isSelect: filterItem.id === type,
-            })),
-        )
     }
-
-    useEffect(() => {
-        const type = match.params.type || MOVIE_TYPE.ALL
-
-        getData(type)
-    }, [])
 
     return (
         <div className="MoviesList">
-            <Filter items={filter} onClick={type => getData(type)} />
+            {/*<Filter items={filter} onClick={type => getData(type)} />*/}
 
             <Row>
                 {movies.map(movie => (
                     <Col sm={3} key={movie.id}>
                         <MovieCard
-                            id={movie.id}
+                            id={movie.id.toString()}
                             type={movie.type}
                             title={movie.title}
                             cover={movie.cover}

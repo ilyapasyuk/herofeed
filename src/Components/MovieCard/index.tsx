@@ -2,7 +2,7 @@ import React from 'react'
 import Dayjs from 'dayjs'
 import styled from 'styled-components'
 
-import variables from '../styles/variables'
+import { variables } from '../styles/variables'
 
 function getTypeBg(type: string) {
     switch (type) {
@@ -105,27 +105,25 @@ const Type = styled.span<TypeProps>`
     color: #fff;
     z-index: 2;
 `
-interface MovieCard {
-    type: string,
-    id: string,
-    title?: string,
-    cover: string,
+interface MovieCardProps {
+    type: string
+    id: string
+    title?: string
+    cover: string
     realise: string
 }
 
-const MovieCard = (props: MovieCard) => {
+const MovieCard = ({ type, cover, id, realise, title }: MovieCardProps) => {
     return (
         <Card>
             <Paster>
-                <Type type={props.type}>{props.type}</Type>
-                <Realise>{Dayjs(props.realise).format('DD.MM.YYYY')}</Realise>
-                {props.cover && <img src={props.cover} alt={props.title} />}
+                <Type type={type}>{type}</Type>
+                <Realise>{Dayjs(realise).format('DD.MM.YYYY')}</Realise>
+                {cover && <img src={cover} alt={title} />}
             </Paster>
-            {props.title && <Title>{props.title}</Title>}
+            {title && <Title>{title}</Title>}
         </Card>
     )
 }
-
-
 
 export default MovieCard
