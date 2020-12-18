@@ -12,6 +12,7 @@ function setType(type) {
 }
 
 const MovieList = () => {
+    document.title = 'Herofeed - Movies'
     const [query, setQuery] = useState<string>('')
     const { movies } = useMovies(query)
 

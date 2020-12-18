@@ -30,7 +30,7 @@ const Card = styled('div')`
     border-radius: 4px;
 `
 
-const Paster = styled('div')`
+const StyledPoster = styled('div')`
     overflow: hidden;
     display: block;
     background-color: rgba(0, 0, 0, 0.05);
@@ -116,11 +116,11 @@ interface MovieCardProps {
 const MovieCard = ({ type, cover, id, realise, title }: MovieCardProps) => {
     return (
         <Card>
-            <Paster>
+            <StyledPoster>
                 <Type type={type}>{type}</Type>
                 <Realise>{Dayjs(realise).format('DD.MM.YYYY')}</Realise>
                 {cover && <img src={cover} alt={title} />}
-            </Paster>
+            </StyledPoster>
             {title && <Title>{title}</Title>}
         </Card>
     )
