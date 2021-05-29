@@ -18,7 +18,7 @@ const GamesPage = ({ games }: GamesPageProps) => {
           <GameCard
             key={game.id}
             title={game.properties.title.title[0].plain_text}
-            realise={game.properties.date_relise?.number}
+            realise={game.properties.date_release?.date}
             platforms={game.properties.platforms.multi_select}
           />
         ))}
