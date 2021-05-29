@@ -2,6 +2,8 @@ export type PlaintTextType = { plain_text: string }
 
 export type MultiSelect = { id: string; name: string; color: string }
 
+export type DateType = { start?: string; end?: string | null }
+
 export type GameType = {
   archived: false
   created_time: string
@@ -9,10 +11,10 @@ export type GameType = {
   last_edited_time: string
   object: 'page'
   properties: {
-    date_relise: {
+    date_release: {
       id?: string
-      number?: number
-      type?: 'number'
+      date?: DateType
+      type?: 'date'
     }
     platforms: {
       id: string
