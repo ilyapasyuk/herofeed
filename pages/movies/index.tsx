@@ -1,15 +1,14 @@
 import React from 'react'
-
 import { GetStaticProps } from 'next'
 import { Client } from '@notionhq/client'
 
-import { GamesPage, GamesPageProps } from 'Modules/GamesPage'
+import { MoviesPage, MoviesPageProps } from 'Modules/MoviesPage'
 
 const client = new Client({ auth: 'secret_9QOHWRg6JDcaYU2NCiRr3fsGPZoWFMObKQpZimwoKUr' })
 
 export const getStaticProps: GetStaticProps = async context => {
   const response = await client.databases.query({
-    database_id: 'aaefaa55cd8c4d859d9145511485d3ff',
+    database_id: '3e9eaff92f224aa2aaefc106fe136b1e',
     sorts: [
       {
         property: 'date_release',
@@ -21,13 +20,13 @@ export const getStaticProps: GetStaticProps = async context => {
 
   return {
     props: {
-      games: response.results,
+      movies: response.results,
     },
   }
 }
 
-const Games = ({ games }: GamesPageProps) => {
-  return <GamesPage games={games} />
+const Movies = ({ movies }: MoviesPageProps) => {
+  return <MoviesPage movies={movies} />
 }
 
-export default Games
+export default Movies

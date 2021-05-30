@@ -1,8 +1,4 @@
-export type PlaintTextType = { plain_text: string }
-
-export type MultiSelect = { id: string; name: string; color: string }
-
-export type DateType = { start?: string; end?: string | null }
+import { DateType, MultiSelectType, PlaintTextType } from 'helpers/notionTypes'
 
 export type GameType = {
   archived: false
@@ -19,7 +15,7 @@ export type GameType = {
     platforms: {
       id: string
       type: 'multi_select'
-      multi_select: MultiSelect[]
+      multi_select: MultiSelectType[]
     }
     title: {
       id: string
