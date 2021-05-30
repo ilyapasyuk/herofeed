@@ -1,7 +1,8 @@
-import { GlobalStyles } from 'Components/Page/styles'
 import React from 'react'
 import Head from 'next/head'
 import { MainMenu } from 'Components/MainMenu'
+
+import { GlobalStyles } from './styles'
 
 interface PageProps {
   title: string
