@@ -20,7 +20,6 @@ const StyledCard = styled('div')`
   padding: 0;
   position: relative;
   margin-bottom: 30px;
-  width: 100%;
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
@@ -29,30 +28,11 @@ const StyledCard = styled('div')`
 `
 
 const StyledPoster = styled('div')`
-  overflow: hidden;
-  display: block;
   background-color: rgba(0, 0, 0, 0.05);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 32px 32px;
   border-radius: 4px 4px 0 0;
   z-index: 1;
   text-decoration: none;
   position: relative;
-  height: 0;
-  width: 100%;
-  padding-bottom: 150%;
-
-  img {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border-radius: inherit;
-    object-fit: cover;
-    z-index: 1;
-  }
 `
 
 const StyledTitle = styled('h4')`
