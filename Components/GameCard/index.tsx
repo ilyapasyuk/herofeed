@@ -2,12 +2,12 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { StyledCard, StyledTitle, StyledRealise, StyledPlatform, StyledPlatforms } from './style'
 
-import { DateType, MultiSelectType } from 'Modules/GamesPage/types'
+import { DateType, MultiSelectType } from 'helpers/notionTypes'
 
 interface GameCardProps {
   title: string
   realise: DateType | undefined
-  platforms: MultiSelect[]
+  platforms: MultiSelectType[]
 }
 
 const GameCard = ({ title, platforms, realise }: GameCardProps) => {
