@@ -1,3 +1,4 @@
+import { Page } from 'Components/Page'
 import React from 'react'
 import { GetStaticProps } from 'next'
 import { Client } from '@notionhq/client'
@@ -6,7 +7,7 @@ import { MoviesPage, MoviesPageProps } from 'Modules/MoviesPage'
 
 const client = new Client({ auth: 'secret_9QOHWRg6JDcaYU2NCiRr3fsGPZoWFMObKQpZimwoKUr' })
 
-export const getStaticProps: GetStaticProps = async context => {
+export async function getStaticProps() {
   const response = await client.databases.query({
     database_id: '3e9eaff92f224aa2aaefc106fe136b1e',
     sorts: [
@@ -26,7 +27,11 @@ export const getStaticProps: GetStaticProps = async context => {
 }
 
 const Movies = ({ movies }: MoviesPageProps) => {
-  return <MoviesPage movies={movies} />
+  return (
+    <Page title="Movies">
+      <MoviesPage movies={movies} />
+    </Page>
+  )
 }
 
 export default Movies

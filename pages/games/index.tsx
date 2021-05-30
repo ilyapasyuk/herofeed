@@ -1,3 +1,4 @@
+import { Page } from 'Components/Page'
 import React from 'react'
 
 import { GetStaticProps } from 'next'
@@ -34,7 +35,11 @@ export const getStaticProps: GetStaticProps = async context => {
 }
 
 const Games = ({ games }: GamesPageProps) => {
-  return <GamesPage games={games} />
+  return (
+    <Page title="Games">
+      <GamesPage games={games} />
+    </Page>
+  )
 }
 
 export default Games

@@ -1,6 +1,5 @@
 import React from 'react'
 import Dayjs from 'dayjs'
-import Image from 'next/image'
 
 import {
   StyledCard,
@@ -24,16 +23,7 @@ const MovieCard = ({ type, cover, id, realise, title }: MovieCardProps) => {
       <StyledPoster>
         {type && <StyledType type={type}>{type}</StyledType>}
         <StyledRealise>{Dayjs(realise).format('DD.MM.YYYY')}</StyledRealise>
-        {cover && (
-          <Image
-            src={cover}
-            alt={title}
-            objectFit="cover"
-            width={200}
-            height={400}
-            loading="eager"
-          />
-        )}
+        {cover && <img src={cover} alt={title} />}
       </StyledPoster>
       {title && <StyledTitle>{title}</StyledTitle>}
     </StyledCard>

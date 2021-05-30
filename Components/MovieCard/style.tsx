@@ -33,6 +33,11 @@ const StyledPoster = styled('div')`
   z-index: 1;
   text-decoration: none;
   position: relative;
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
 `
 
 const StyledTitle = styled('h4')`
